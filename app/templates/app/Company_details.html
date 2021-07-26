@@ -1,0 +1,138 @@
+{% extends "app/base.html" %}
+
+{% load static %}
+
+{% block title %}
+        Job Description
+{% endblock title %}
+
+{% block main-content %}
+
+<div class="m-5">
+    <h1 class="">{{placement_company_detail.title|capfirst}} </h1>
+    <small> By : {{ placement_company_detail.author.first_name|capfirst }} {{ placement_company_detail.author.last_name|capfirst }} - {{placement_company_detail.post_date}} </small>
+                {% if user.is_authenticated %}
+                {% if request.user.is_staff %}
+
+                            <small>
+                                <a href="{% url 'update_job_post' placement_company_detail.pk %}">- (Edit)</a>
+
+                                <a href="{% url 'delete_post' placement_company_detail.pk %}">(Delete)</a>
+                                
+                            </small>
+
+                {% endif %}
+                {% endif %}
+
+    <hr>
+
+    <div class="text-center">
+
+    {% if placement_company_detail.Company_image %}
+
+    <img class="img-fluid" height='300px' width='400px' src="{{placement_company_detail.Company_image.url}}"> <br><br>
+    
+    {% else %}
+
+        <img class="img-fluid rounded-start" height='400' width='900' src="{% static "app/images/default.jpg" %}">
+
+    {% endif %}
+    </div>
+
+    <div class="ft-blog-paragraph">
+    {{ placement_company_detail.Job_Description|safe }}
+    </div>
+    <br><hr><br>
+    <p>{{placement_company_detail.job_type}}</p>
+    <a href="{{ placement_company_detail.apply_link }}">Apply</a>
+</div>
+
+
+
+{% comment %} <form action="{% url 'like_post' post.pk %}" method="POST">
+        {% csrf_token %}
+
+        {% if user.is_authenticated %}
+
+        {% if liked %}
+        <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn btn-danger btn-sm">UnLike</button>
+        {% else %}
+
+        <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn btn-primary btn-sm">Like</button>
+
+        {% endif %}
+        {% else %}
+        <a class="" href="{% url 'login' %}">Login to Like</a>
+        {% endif %}
+        - {{total_likes}} Likes
+</form> {% endcomment %}
+
+<br>
+
+{% comment %} <div class="card mb-3">
+        <div class="row no-gutters">
+                <div class="col-md-2">
+                        {% if post.author.profile.profile_pic %}
+                          
+                        <img src="{{post.author.profile.profile_pic.url}}" class="card-img" alt="author's image">
+
+                        {% else %}
+
+                        <img src="{% static 'images/download.png' %}" class="card-img" alt="author's image">
+
+                        {% endif %}
+
+                </div>
+                <div class="col-md-10">
+                        <div class="card-body">
+                                <h5 class="card-title">{{ post.author.first_name|capfirst }} {{ post.author.last_name|capfirst }}</h5>
+                                <p class="small text-muted">
+                                        
+                                        <a href="{% url 'show_profile' post.author.profile.id %}">Profile</a> |
+
+                                        {% if post.author.profile.website_url %}
+                                        <a href="{{ post.author.profile.website_url }}">Website</a> |
+                                        {% endif %}
+
+                                        {% if post.author.profile.facebook_url %}
+                                        <a href="{{ post.author.profile.facebook_url }}">Facebook</a> |
+                                        {% endif %}
+
+                                        {% if post.author.profile.twitter_url %}
+                                        <a href="{{ post.author.profile.twitter_url }}">Twitter</a> |
+                                        {% endif %}
+
+                                        {% if  post.author.profile.instagram_url %}
+                                        <a href="{{ post.author.profile.instagram_url }}">Instagram</a> |
+                                        {% endif %}
+
+                                        {% if post.author.profile.linkdin_url %}
+                                        <a href="{{ post.author.profile.linkdin_url }}">Linkdin</a> 
+                                        {% endif %}
+                                </p>
+                                <p class="card-text">{{ post.author.profile.bio }}</p>
+
+                        </div>
+                </div>
+        </div>
+</div>
+
+<h2>Comments...</h2>
+{% if not post.comments.all %}
+ No comments yet... <a href="{% url 'add_comment' post.pk %}">Add One</a> <br>
+{% else %}
+
+<a href="{% url 'add_comment' post.pk %}">Add Comment</a> <br><br>
+
+        {% for comment in post.comments.all %}
+        <strong>{{ comment.name|capfirst }} -
+        {{ comment.date_added }} 
+        </strong> 
+       <br> {{ comment.body }} <br>
+       
+        {% endfor %}
+    <br><a href="{% url 'add_comment' post.pk %}">Add Comment</a> <br>
+{% endif %} {% endcomment %}
+    
+
+{% endblock main-content %}

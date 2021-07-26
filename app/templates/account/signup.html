@@ -1,0 +1,75 @@
+{% extends "app/base.html" %}
+{% load socialaccount %}
+{% load i18n %}
+{% block title %}login {% endblock title %}
+
+{% block common_scripts %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+  // Load jquery straight from the cdn for this page.
+  $(function() {
+    $('#id_password1').addClass('form-control').removeAttr('autofocus').blur();
+    $('#id_password2').addClass('form-control').removeAttr('autofocus').blur();
+    $('#id_username').addClass('form-control');
+    $('#id_email').addClass('form-control');
+  });
+</script>
+{% endblock common_scripts %}
+
+{% block main-content %}
+
+{% if not request.user.is_authenticated %}
+
+<div class="container">
+   <div class="row my-3">
+      <div class="col-sm-6 offset-sm-3">
+         <h3>Signup</h3>
+         <hr>
+
+         <form action="" method="post" novalidate class="shadow p-4 mb-3">
+            {% comment %} {% if messages %}
+               {% for message in messages %}
+                  <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+               {% endfor %}
+            {% endif %} {% endcomment %}
+            {% csrf_token %}
+            {% for fm in form %}
+            <div class="form-group mb-3">
+               {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+            </div>
+            {% endfor %}
+            <input type="submit" value="Submit" class="btn btn-primary">
+            <br>
+            <div class="text-center text-primary fw-bold">
+               <small>Existing User ? <a href="{% url 'account_login' %}" class="text-danger">Login Now</a></small>
+            </div>
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+            {% endif %}
+         </form>
+      </div>
+   </div>
+</div>
+
+{% else %}
+
+you're not allowed here
+
+{% endif %}
+
+
+{% comment %} <h1>{% trans "Sign Up" %}</h1>
+
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+            {{ form.as_p }}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+        <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+    </form> {% endcomment %}
+{% endblock main-content %}
+

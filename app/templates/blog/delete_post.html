@@ -1,0 +1,36 @@
+{% extends "app/base.html" %}
+
+{% block title %}
+Delete Job Post
+{% endblock title %}
+
+{% block main-content %}
+
+{% if user.is_authenticated %}
+{% if user.id == studentblogmodel.author.id or request.user.is_staff %}
+
+<div class="container text-center">
+
+    <h2>Delete Blog Post...</h2><br><br>
+    <h3>Delete: {{studentblogmodel.title}}</h3>
+
+    <br>
+    <div class="form-group">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <strong>Are you sure?</strong><br><br>
+            <input value="Delete Post !" type="submit" class="btn btn-secondary mb-2">
+        </form>
+    </div>
+
+</div>
+
+
+{% else %}
+    you're not allowed here
+
+{% endif %}
+{% endif %}
+
+
+{% endblock main-content %}

@@ -1,0 +1,88 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block main-content %}
+
+<div class="container">
+    <a href="
+    {% if user.is_authenticated %}
+        {% if request.user.profile.bio %}
+        
+        {% url 'Add_Blog_Post' %}"><input class="btn btn-success" type="button" value="New" style="float: right;"></a>    
+
+        {% else %}
+
+        {% url 'create_profile' %}"><input class="btn btn-success" type="button" value="New" style="float: right;"></a>
+
+        {% endif %}
+        {% comment %} {% url 'Add_Blog_Post' %}"><input class="btn btn-success" type="button" value="New" style="float: right;"></a> {% endcomment %}
+    {% else %}
+        {% url 'account_login' %}"><input class="btn btn-success" type="button" value="New" style="float: right;"></a>
+    {% endif %}
+</div>
+
+{% if StudentBlogModel_list %}
+    {% for StudentBlogModel in object_list %}
+    <div class="container mt-2">
+        <div class="card mb-3" style="max-width: 840px;">
+             <div class="row g-0" href="{% url 'Blog_Description' StudentBlogModel.pk %}"> 
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"> <a href="{% url 'Blog_Description' StudentBlogModel.pk %}">{{ StudentBlogModel.title|capfirst}}</a></h5> ~ 
+                        {% if StudentBlogModel.author.first_name or StudentBlogModel.author.last_name%}
+                            <small class="card-title">{{StudentBlogModel.author.first_name|capfirst}}
+                            {{StudentBlogModel.author.last_name|capfirst}} - {{StudentBlogModel.post_date}}</small>
+                        {% else %}
+                            <small class="card-title">{{StudentBlogModel.author.username|capfirst}}
+                             - {{StudentBlogModel.post_date}}</small>
+                        {% endif %}
+                        
+                       
+                        {% if user.is_authenticated %}
+                        {% if user.id == StudentBlogModel.author.id or request.user.is_staff %}
+
+                            <small>
+                                <a href="{% url 'update_blog_post' StudentBlogModel.pk %}">- (Edit)</a>
+
+                                <a href="{% url 'delete_blog_post' StudentBlogModel.pk %}">(Delete)</a>
+                                
+                            </small>
+
+                        {% endif %}
+                        {% endif %} 
+
+                        <p class="card-text">{{StudentBlogModel.snippet}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+<br>
+    {% endfor %}
+
+
+     {# .... **Now the pagination section** .... #}
+    {% if is_paginated %}
+        <div class="pagination mt-3">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+    
+
+{% else %}
+
+ <p>No Post found!!! :(</p>
+
+{% endif %}
+
+{% endblock main-content %}

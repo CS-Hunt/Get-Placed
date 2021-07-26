@@ -1,0 +1,65 @@
+{% extends "app/base.html" %}
+{% load socialaccount %}
+{% load i18n %}
+{% block title %}login {% endblock title %}
+
+
+
+{% block common_scripts %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+  // Load jquery straight from the cdn for this page.
+  $(function() {
+    $('#id_login').addClass('form-control').removeAttr('autofocus').blur();
+    $('#id_password').addClass('form-control');
+  });
+</script>
+{% endblock common_scripts %} 
+
+{% block main-content %}
+
+<div class="container" >
+   <div class="row my-3">
+      <div class="col-sm-6 offset-sm-3">
+         <h3>Login</h3>
+         <hr>
+
+{% comment %} <h1 class="h3 mb-3 text-center">Please sign in</h1>
+    <div class="container text-dark mt-5">
+        <div class="row justify-content-md-center">
+          <div class="col-md-5 bg-grey p-3"> {% endcomment %}
+            {% comment %} <form class="form-signin"> {% endcomment %}
+                {% comment %} <h1 class="h3 mb-3">Please sign in</h1>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <div class="checkbox mb-3">
+                  <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div>
+                <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+
+                <h5>If you have not created an account yet, then please
+                <a href="{{ signup_url }}">sign up</a> first.</h5> {% endcomment %}
+                <form method="POST" action="{% url 'account_login' %}" class="shadow p-4 mb-3">
+                
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a><br>
+                <button class="primaryAction btn btn-primary " type="submit">{% trans "Sign In" %}</button>
+                
+                <a href="{% provider_login_url 'google' %}" class="btn btn btn-danger " role="button" aria-pressed="true">Sign in with Google</a>
+                </form>
+          
+          </div>
+        </div>
+    </div> 
+
+
+{% endblock main-content %}
+

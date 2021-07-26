@@ -1,0 +1,39 @@
+{% extends "app/base.html" %}
+
+{% block title %} 
+Edit profile page
+{% endblock title %}
+
+{% block main-content %}
+
+{% if user.is_authenticated %}
+{% if user.id == profile.user.id %}
+
+<div class="container">
+        <h2>Edit Profile Page...</h2><hr><br>
+        <div class="form-group mb-3">
+            <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.media}}
+            {{form.as_p}}
+            <input value="Save" type="submit" class="btn btn-secondary">
+            </form>
+        </div>
+</div>
+
+
+{% else %}
+
+<h3>You are not the correct user</h3>
+{% endif %}
+
+
+{% else %}
+   
+   you're not allowed here
+
+{% endif %}
+
+{% endblock main-content %}
+
+</div>
