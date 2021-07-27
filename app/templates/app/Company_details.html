@@ -8,9 +8,9 @@
 
 {% block main-content %}
 
-<div class="m-5">
-    <h1 class="">{{placement_company_detail.title|capfirst}} </h1>
-    <small> By : {{ placement_company_detail.author.first_name|capfirst }} {{ placement_company_detail.author.last_name|capfirst }} - {{placement_company_detail.post_date}} </small>
+<div class="container">
+    <p class="font-blog-detail-title">{{placement_company_detail.title|capfirst}} </p>
+    <small class="ft-blog-paragraph"> By : {{ placement_company_detail.author.first_name|capfirst }} {{ placement_company_detail.author.last_name|capfirst }} - {{placement_company_detail.post_date}} </small>
                 {% if user.is_authenticated %}
                 {% if request.user.is_staff %}
 
@@ -40,7 +40,7 @@
     </div>
 
     <div class="ft-blog-paragraph">
-    {{ placement_company_detail.Job_Description|safe }}
+    <p>{{ placement_company_detail.Job_Description|safe }}</p>
     </div>
     <br><hr><br>
     <p>{{placement_company_detail.job_type}}</p>

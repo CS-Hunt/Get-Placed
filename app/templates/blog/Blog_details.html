@@ -8,13 +8,17 @@
 
 {% block main-content %}
 
-<div class="conatiner">
-    <div class="m-5">
-    <h1 class="">{{studentblogmodel.title|capfirst}} </h1>
-    <small> By : {{ studentblogmodel.author.first_name|capfirst }} {{ studentblogmodel.author.last_name|capfirst }} - {{studentblogmodel.post_date}} </small>
+
+<div class="container">
+        <div class="row">
+                <div class="col-lg-2">
+                </div>
+        
+    <div class="col-lg-8">
+    <p class="font-blog-detail-title">{{studentblogmodel.title|capfirst}} </p>
+    <small class="m-2"> By : {{ studentblogmodel.author.first_name|capfirst }} {{ studentblogmodel.author.last_name|capfirst }} - {{studentblogmodel.post_date}} </small>
                {% if user.is_authenticated %}
                {% if user.id == studentblogmodel.author.id or request.user.is_staff %}
-
 
                             <small>
                                 <a href="{% url 'update_blog_post' studentblogmodel.pk %}">- (Edit)</a>
@@ -32,78 +36,26 @@
     {{ studentblogmodel.body|safe }}
     </div>
     <br><hr><br>
+    <h6>By:</h6>
+<div class="row">
+        <div class="col-lg-8">
+                <div class="card shadow rounded">
+                <h5 class="card-header">{{ studentblogmodel.author.first_name|capfirst }} {{ studentblogmodel.author.last_name|capfirst }}</h5>
+                <div class="card-body">
+                <p class="card-text">{{studentblogmodel.author.profile.bio}}</p>
+                <a href="{% url 'show_profile' studentblogmodel.author.profile.id %}" class="btn btn-primary">Check Profile</a>
+                </div>
+                </div>
+</div>
+</div>
+</div>
+
+
 </div>
 
 
 
 
-{% comment %} <form action="{% url 'like_post' post.pk %}" method="POST">
-        {% csrf_token %}
-
-        {% if user.is_authenticated %}
-
-        {% if liked %}
-        <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn btn-danger btn-sm">UnLike</button>
-        {% else %}
-
-        <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn btn-primary btn-sm">Like</button>
-
-        {% endif %}
-        {% else %}
-        <a class="" href="{% url 'login' %}">Login to Like</a>
-        {% endif %}
-        - {{total_likes}} Likes
-</form> {% endcomment %}
-
-<br>
-
-<div class="card mb-3">
-        <div class="row no-gutters">
-                <div class="col-md-2">
-                        {% if user.profile.profile_pic %}
-
-                                <img src="{{ request.user.profile.profile_pic.url }}" class="card-img"
-                                                                        alt="author's image" />
-
-                        {% else %}
-
-                        <img src="{% static 'app/images/download.jpeg' %}" class="card-img" alt="author's image" />
-
-                        {% endif %}
-
-                </div>
-                <div class="col-md-10">
-                        <div class="card-body">
-                                <h5 class="card-title">{{ studentblogmodel.author.first_name|capfirst }} {{ studentblogmodel.author.last_name|capfirst }}</h5>
-                                <p class="small text-muted">
-                                        
-                                        <a href="{% url 'show_profile' studentblogmodel.author.profile.id %}">Profile</a> |
-
-                                        {% if studentblogmodel.author.profile.website_url %}
-                                        <a href="{{ studentblogmodel.author.profile.website_url }}">Website</a> |
-                                        {% endif %}
-
-                                        {% comment %} {% if studentblogmodel.author.profile.facebook_url %}
-                                        <a href="{{ studentblogmodel.author.profile.facebook_url }}">Facebook</a> |
-                                        {% endif %} {% endcomment %}
-
-                                        {% comment %} {% if studentblogmodel.author.profile.twitter_url %}
-                                        <a href="{{ studentblogmodel.author.profile.twitter_url }}">Twitter</a> |
-                                        {% endif %} {% endcomment %}
-
-                                        {% comment %} {% if  studentblogmodel.author.profile.instagram_url %}
-                                        <a href="{{ studentblogmodel.author.profile.instagram_url }}">Instagram</a> |
-                                        {% endif %} {% endcomment %}
-
-                                        {% if studentblogmodel.author.profile.linkdin_url %}
-                                        <a href="{{ studentblogmodel.author.profile.linkdin_url }}">Linkdin</a> 
-                                        {% endif %}
-                                </p>
-                                <p class="card-text">{{ studentblogmodel.author.profile.bio }}</p>
-
-                        </div>
-                </div>
-        </div>
 </div>
 
 

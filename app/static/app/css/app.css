@@ -297,6 +297,28 @@ nav .navbar .links li .sub-menu li{
     }
 }
 
+
+/*    Blog Detail     */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+.font-blog-detail-title{
+  font-size: 44px;
+  font-family: 'Merriweather', serif;
+  text-shadow: grey;
+  line-height: 43px;
+}
+
+@media (max-width:600px){
+  .font-blog-detail-title{
+    /* padding: 12px 5px 0px 2px; */
+    margin:5px;
+  }
+  .ft-blog-paragraph{
+    margin:15px;
+  }
+}
+
+
 /* Footer styling */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 /* *{
@@ -553,6 +575,4 @@ footer .bottom-details .bottom_text{
 .django-ckeditor-widget{
   width: 100%;
 }
-
-/*    Button     */
 
