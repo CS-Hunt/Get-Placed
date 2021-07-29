@@ -14,7 +14,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
-<body>
+<body onload="onLoad()">
+<div id="loading"></div>
   <nav class="mb-5">
     <div class="navbar">
       <i class='bx bx-menu'></i>
@@ -25,7 +26,7 @@
           <i class='bx bx-x' ></i>
         </div>
         <ul class="links">
-          <li><a href="{% url "home" %}">EXPLORE</a></li>
+          <li><a href="{% url "home" %}">RESOURCES</a></li>
           
           {% comment %} <li>
             <a href="#">JAVASCRIPT</a>
@@ -65,7 +66,7 @@
             
               <li><a href="{% url "show_profile" user.profile.id %}">{{user.username|capfirst}}</a></li>
               {% comment %} <li><a href="{% url "user_edit" user.profile.id %}">Edit settings</a></li> {% endcomment %}
-              <li><a href="{% url "edit_profile" user.profile.id %}">Edit profile page</a></li>
+              <li><a href="{% url "edit_profile" user.profile.id %}">Edit profile</a></li>
             {% else %}
                             
                <li><a href="{% url  'create_profile' %}">Create profile page</a></li>
@@ -94,7 +95,7 @@
               </li>
             </ul>
           </li>
-            <li><a href="{% url "account_logout" %}">Logout</a></li>
+            <li><a href="{% url "account_logout" %}">LOGOUT</a></li>
             
           {% else %}
             <li><a href="{% url "account_login" %}">Login</a></li>

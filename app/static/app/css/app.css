@@ -5,9 +5,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-body{
-  background-color: #222222;
-}
+
 nav{
   /* position: fixed; */
   top: 0;
@@ -488,7 +486,7 @@ footer .content .box{
 }
 footer .bottom-details{
   width: 100%;
-  background: #0F0844;
+  background: #000000;
 }
 footer .bottom-details .bottom_text{
   max-width: 1250px;

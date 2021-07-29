@@ -66,25 +66,35 @@ class UserLoginForm(LoginForm):
 class ProfilePageView(forms.ModelForm):
     class Meta:
         model = Profile
-        fields =  ('bio','profile_pic','website_url','linkdin_url','Gender')
+        fields =  ('bio','Gender','Mobile_Number','city','state','profile_pic','twitter_url','instagram_url','linkdin_url','github_url')
         widgets = {
                 'bio': forms.Textarea(attrs={'class':'form-control','placeholder':'Write a summary about you...'}),
                 # 'profile_pic': forms.ImageField(),
-                'website_url': forms.TextInput(attrs={'class':'form-control'}),
                 'Gender': forms.Select(attrs={'class':'form-control'}),
+                'Mobile_Number': forms.TextInput(attrs={'class':'form-control','placeholder':'Enter your Mobile number'}),
+                'city': forms.TextInput(attrs={'class':'forms-control'}),
+                'state': forms.Select(attrs={'class':'form-control'}),
+                'twitter_url': forms.TextInput(attrs={'class':'form-control'}),
+                'instagram_url': forms.TextInput(attrs={'class':'form-control'}),
                 'linkdin_url': forms.TextInput(attrs={'class':'form-control'}),
+                'github_url': forms.TextInput(attrs={'class':'form-control'}),
         }
 
 class EditProfileFormPage(forms.ModelForm):
     class Meta:
         model = Profile
-        fields =  ('bio','profile_pic','website_url','linkdin_url','Gender')
+        fields =  ('bio','Gender','Mobile_Number','city','state','profile_pic','twitter_url','instagram_url','linkdin_url','github_url')
         widgets = {
                 'bio': forms.Textarea(attrs={'class':'form-control','placeholder':'Write a summary about you...'}),
-                # 'profile_pic': forms.TextInput(attrs={'class':'form-control'}),
-                'website_url': forms.TextInput(attrs={'class':'form-control'}),
+                # 'profile_pic': forms.ImageField(),
                 'Gender': forms.Select(attrs={'class':'form-control'}),
+                'Mobile_Number': forms.TextInput(attrs={'class':'form-control'}),
+                'city': forms.TextInput(attrs={'class':'form-control'}),
+                'state': forms.Select(attrs={'class':'form-control'}),
+                'twitter_url': forms.TextInput(attrs={'class':'form-control'}),
+                'instagram_url': forms.TextInput(attrs={'class':'form-control'}),
                 'linkdin_url': forms.TextInput(attrs={'class':'form-control'}),
+                'github_url': forms.TextInput(attrs={'class':'form-control'}),
         }
 
 class EditProfileForm(UserChangeForm):

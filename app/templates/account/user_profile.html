@@ -10,9 +10,9 @@
                             <div class="card-block text-center text-white">
                                 <div class="m-b-25"> 
                                 {% if page_user.profile_pic %}
-                                        <img src="{{page_user.profile_pic.url}}" height="200" width="250" class="img-radius img-fluid" alt="User-Profile-Image">
+                                        <img src="{{page_user.profile_pic.url}}" height="150" width="200" class="img-radius img-fluid" alt="User-Profile-Image">
                                 {% else %}
-                                        <img src="{% static 'app/images/default1.png' %}" height="200" width="250" class="img-radius img-fluid" alt="User-Profile-Image">
+                                        <img src="{% static 'app/images/default2.png' %}" height="150" width="200" class="img-radius img-fluid" alt="User-Profile-Image">
                                 {% endif %}
                                  </div>
                                 <h6 class="f-w-600">{{ page_user.user.first_name|capfirst }} {{page_user.user.last_name|capfirst }}</h6>
@@ -20,18 +20,40 @@
                             </div>
                         </div>
                         <div class="col-sm-8">
+                        {% if user.is_authenticated %}
+                        {% if user.id == profile.user.id %}
+                                                <div style="float:right;" class="mt-1 mr-1">
+                                                    <a href="{% url 'edit_profile' user.profile.id %}" class="btn btn-light" >Edit profile</a>
+                                                </div>
+                        {% endif %}
+                        {% endif %}
                             <div class="card-block">
                                 <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Email</p>
-                                        <h6 class="text-muted f-w-400">rntng@gmail.com</h6>
+                                        {% if not page_user.user.email %}
+                                            <a href="{% url 'user_edit' %}" class="btn btn-light">add email</a>
+                                        {% endif %}
+                                        <h6 class="text-muted f-w-400">{{page_user.user.email}}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Phone</p>
-                                        <h6 class="text-muted f-w-400">98979989898</h6>
+                                        <h6 class="text-muted f-w-400">{{page_user.Mobile_Number}}</h6>
                                     </div>
                                 </div>
+                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Location</h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">City</p>
+                                        <h6 class="text-muted f-w-400">{{page_user.city}}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">State</p>
+                                        <h6 class="text-muted f-w-400">{{page_user.state}}</h6>
+                                    </div>
+                                </div>
+                                {% if page_user.twitter_url or page_user.instagram_url or page_user.linkdin_url or page_user.github_url %}
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Contact</h6>
                                 {% comment %} <div class="row">
                                     <div class="col-sm-6">
@@ -44,12 +66,21 @@
                                     </div>
                                 </div> {% endcomment %}
                                 <ul class="social-link media-icons list-unstyled m-t-40 m-b-10">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-github"></i></a></li>
+
+                                {% if page_user.twitter_url %}
+                                <li><a href="{{ page_user.twitter_url}}"><i class="fab fa-twitter text-primary"></i></a></li>
+                                {% endif %}
+                                {% if page_user.instagram_url %}
+                                <li><a href="{{ page_user.instagram_url}}"><i class="fab fa-instagram text-danger"></i></a></li>
+                                {% endif %}
+                                {% if page_user.linkdin_url %}
+                                <li><a href="{{ page_user.linkdin_url}}"><i class="fab fa-linkedin-in text-primary"></i></a></li>
+                                {% endif %}
+                                {% if page_user.github_url %}
+                                <li><a href="{{ page_user.github_url }}"><i class="fab fa-github text-dark"></i></a></li>
+                                {% endif %}
                                 </ul>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

@@ -50,7 +50,7 @@
                         {% endif %}
                         {% endif %} 
 
-                        <p class="card-text">{{StudentBlogModel.snippet}}</p>
+                        <p class="card-text">{{StudentBlogModel.snippet|truncatechars:100}}</p>
                     </div>
                 </div>
             </div>

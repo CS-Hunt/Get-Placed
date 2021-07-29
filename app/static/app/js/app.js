@@ -1,3 +1,11 @@
+/*  Preloader */
+let preloader = document.getElementById('loading');
+
+const onLoad = () => {
+    preloader.style.display = 'none';
+}
+
+
 // search-box open close js code
 console.log("hi")
 let navbar = document.querySelector(".navbar");
