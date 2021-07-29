@@ -7,8 +7,8 @@ Create a new Blog Post
 {% block main-content %}
 
 {% if user.is_authenticated %}
-    <div class="container mb-3">
-        <h2>Add Blog Post...</h2><br>
+    <div class="container mt-4 mb-2">
+        <h2>Add Blog Post</h2><br>
         <div class="form-group">
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -18,13 +18,6 @@ Create a new Blog Post
             </form>
         </div>
     </div>
-
-<script>
-   var name = "{{ user.id }}"
-   document.getElementById("elder").value
-      = name;
-
-</script>
 
 {% else %}
    <p class="m-3">you're not allowed here</p>

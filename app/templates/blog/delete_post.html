@@ -9,9 +9,9 @@ Delete Job Post
 {% if user.is_authenticated %}
 {% if user.id == studentblogmodel.author.id or request.user.is_staff %}
 
-<div class="container text-center">
+<div class="container text-center mt-4">
 
-    <h2>Delete Blog Post...</h2><br><br>
+    <h2>Delete Blog Post</h2><br><br>
     <h3>Delete: {{studentblogmodel.title}}</h3>
 
     <br>

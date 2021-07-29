@@ -7,8 +7,8 @@ Create a new Blog Post
 {% block main-content %}
 
  {% if user.is_authenticated %}
-    <div class="container mb-3">
-        <h2>Edit Job Post...</h2><br>
+    <div class="container mb-3 mt-4">
+        <h2>Edit Job Post</h2><br>
         <div class="form-group">
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}

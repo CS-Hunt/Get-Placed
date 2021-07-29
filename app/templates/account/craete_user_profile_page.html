@@ -8,8 +8,8 @@ Create a new Profile
 
 {% if user.is_authenticated %}
 
-<div class="container mb-2">
-   <h2>create Profile...</h2><br>
+<div class="container my-4">
+   <h2>Create Profile</h2><br>
    <div class="form-group">
    <form action="" method="POST" enctype="multipart/form-data">
    {% csrf_token %}
