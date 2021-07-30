@@ -102,3 +102,77 @@ class StudentBlogModel(models.Model):
 
     def get_absolute_url(self):
         return reverse("blog") 
+
+class ResorcesModel(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    docs = models.URLField(blank=True,null=True)
+
+    # Best Cources
+    course1_title = models.CharField(max_length=255,null=True, blank=True)
+    course1_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    course1_link = models.URLField(blank=True,null=True)
+
+    course2_title = models.CharField(max_length=255,null=True, blank=True)
+    course2_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    course2_link = models.URLField(blank=True,null=True)
+
+    course3_title = models.CharField(max_length=255,null=True, blank=True)
+    course3_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    course3_link = models.URLField(blank=True,null=True)
+
+    course4_title = models.CharField(max_length=255,null=True, blank=True)
+    course4_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    course4_link = models.URLField(blank=True,null=True)
+
+    course5_title = models.CharField(max_length=255,null=True, blank=True)
+    course5_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    course5_link = models.URLField(blank=True,null=True)
+
+    # Youtube Channels
+    channel1_title = models.CharField(max_length=255,null=True, blank=True)
+    channel1_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    channel1_link = models.URLField(blank=True,null=True)
+
+    channel2_title = models.CharField(max_length=255,null=True, blank=True)
+    channel2_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    channel2_link = models.URLField(blank=True,null=True)
+
+    channel3_title = models.CharField(max_length=255,null=True, blank=True)
+    channel3_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    channel3_link = models.URLField(blank=True,null=True)
+
+    channel4_title = models.CharField(max_length=255,null=True, blank=True)
+    channel4_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    channel4_link = models.URLField(blank=True,null=True)
+
+    channel5_title = models.CharField(max_length=255,null=True, blank=True)
+    channel5_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    channel5_link = models.URLField(blank=True,null=True)
+
+    # Useful Websites
+    Website1_title = models.CharField(max_length=255,null=True, blank=True)
+    Website1_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    Website1_link = models.URLField(blank=True,null=True)
+
+    Website2_title = models.CharField(max_length=255,null=True, blank=True)
+    Website2_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    Website2_link = models.URLField(blank=True,null=True)
+
+    Website3_title = models.CharField(max_length=255,null=True, blank=True)
+    Website3_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    Website3_link = models.URLField(blank=True,null=True)
+
+    Website4_title = models.CharField(max_length=255,null=True, blank=True)
+    Website4_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    Website4_link = models.URLField(blank=True,null=True)
+
+    Website5_title = models.CharField(max_length=255,null=True, blank=True)
+    Website5_Img = models.ImageField(null=True, blank=True, upload_to="resources/")
+    Website5_link = models.URLField(blank=True,null=True)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("home")

@@ -1,8 +1,8 @@
 from django.shortcuts import render,get_object_or_404
 from django.views import View
-from .models import Placement_Company_Detail,Profile,StudentBlogModel
+from .models import Placement_Company_Detail,Profile,StudentBlogModel,ResorcesModel
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,TemplateView
-from .forms import Job_Post_Form,UserLoginForm,ProfilePageView,EditProfileFormPage,EditProfileForm,Edit_Post_Form,Blog_Post_Form,Edit_Blog_Post_Form
+from .forms import Job_Post_Form,UserLoginForm,ProfilePageView,EditProfileFormPage,EditProfileForm,Edit_Post_Form,Blog_Post_Form,Edit_Blog_Post_Form,ResorcesModelForm
 from allauth.account.views import PasswordChangeView,LoginView
 from django.urls import reverse_lazy,reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -130,6 +130,7 @@ class UserEditView(UpdateView):
     def get_object(self):
         return self.request.user
 
+# Blog views
 
 class BlogView(ListView):
     model = StudentBlogModel
@@ -162,3 +163,19 @@ class DeleteblogPostView(DeleteView):
     model = StudentBlogModel
     template_name = 'blog/delete_post.html'
     success_url = reverse_lazy('blog')
+
+# Resources view
+
+class ResourcesView(ListView):
+    model = ResorcesModel
+    template_name = 'resources/resources.html'
+    ordering = ['title']
+    context_object_name = "ResorcesModel_list"    #default is object_list as well as model's_verbose_name_list and/or model's_verbose_name_plural_list, if defined in the model's inner Meta class
+    paginate_by = 10 
+
+class AddResourcesView(CreateView):
+    model = StudentBlogModel
+    form_class = ResorcesModelForm
+    template_name = 'resources/add_resources.html'
+    # fields = '__all__'
+    # fields = ('title','body')

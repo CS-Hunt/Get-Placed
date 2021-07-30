@@ -1,5 +1,5 @@
 from django import forms
-from .models import Placement_Company_Detail,Profile,StudentBlogModel
+from .models import Placement_Company_Detail,Profile,StudentBlogModel,ResorcesModel
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.utils.translation import gettext,gettext_lazy as _
 from django.contrib.auth.models import User
@@ -37,7 +37,7 @@ class Edit_Post_Form(forms.ModelForm):
 class Blog_Post_Form(forms.ModelForm):
     class Meta:
         model = StudentBlogModel
-        fields = ('title','snippet','author','body')
+        fields = ('title','author','body','snippet')
         widgets = {
             'title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of the Blog Post'}),
             'author' : forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','type':'hidden'}),
@@ -46,13 +46,58 @@ class Blog_Post_Form(forms.ModelForm):
             'snippet' : forms.Textarea(attrs={'class':'form-control','placeholder':'Add snippet of Blog'}),
         }
 
-class Edit_Blog_Post_Form(forms.ModelForm):
+class ResorcesModelForm(forms.ModelForm):
     class Meta:
-        model = StudentBlogModel
-        fields = ('title','snippet','author','body')
+        model = ResorcesModel
+        fields = ('title','docs','author','course1_title','course1_Img','course1_link','course2_title','course2_Img','course2_link','course3_title','course3_Img','course3_link','course4_title','course4_Img','course4_link','course5_title','course5_Img','course5_link',
+        'channel1_title','channel1_Img','channel1_link','channel2_title','channel2_Img','channel2_link','channel3_title','channel3_Img','channel3_link','channel4_title','channel4_Img','channel4_link','channel5_title','channel5_Img','channel5_link',
+        'Website1_title','Website1_Img','Website1_link','Website2_title','Website2_Img','Website2_link','Website3_title','Website3_Img','Website3_link','Website4_title','Website4_Img','Website4_link','Website5_title','Website5_Img','Website5_link',)
         widgets = {
             'title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of the Blog Post'}),
             'author' : forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','type':'hidden'}),
+            # 'author' : forms.Select(attrs={'class':'form-control','placeholder':"author's name"}),
+            'docs' : forms.TextInput(attrs={'class':'form-control','placeholder':'Link of documentation'}),
+            'course1_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of course 1'}),
+            'course1_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of course 1'}),
+            'course2_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of course 2'}),
+            'course2_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of course 2'}),
+            'course3_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of course 3'}),
+            'course3_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of course 3'}),
+            'course4_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of course 3'}),
+            'course4_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of course 3'}),
+            'course5_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of course 3'}),
+            'course5_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of course 3'}),
+
+            'channel1_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of channel 1'}),
+            'channel1_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of channel 1'}),
+            'channel2_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of channel 2'}),
+            'channel2_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of channel 2'}),
+            'channel3_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of channel 3'}),
+            'channel3_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of channel 3'}),
+            'channel4_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of channel 3'}),
+            'channel4_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of channel 3'}),
+            'channel5_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of channel 3'}),
+            'channel5_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of channel 3'}),
+
+            'Website1_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of Website 1'}),
+            'Website1_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of Website 1'}),
+            'Website2_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of Website 2'}),
+            'Website2_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of Website 2'}),
+            'Website3_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of Website 3'}),
+            'Website3_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of Website 3'}),
+            'Website4_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of Website 3'}),
+            'Website4_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of Website 3'}),
+            'Website5_title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of Website 3'}),
+            'Website5_link' : forms.TextInput(attrs={'class':'form-control','placeholder':'link of Website 3'}),
+        }
+
+class Edit_Blog_Post_Form(forms.ModelForm):
+    class Meta:
+        model = StudentBlogModel
+        fields = ('title','snippet','body')
+        widgets = {
+            'title' : forms.TextInput(attrs={'class':'form-control','placeholder':'Title of the Blog Post'}),
+            # 'author' : forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','type':'hidden'}),
             # 'author' : forms.Select(attrs={'class':'form-control','placeholder':"author's name"}),
             'body' : forms.Textarea(attrs={'class':'form-control','placeholder':'Body of the Blog'}),
             'snippet' : forms.Textarea(attrs={'class':'form-control','placeholder':'Add snippet of Blog'}),

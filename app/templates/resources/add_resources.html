@@ -1,0 +1,34 @@
+{% extends "app/base.html" %}
+
+{% block title %} 
+Create a new Resource
+{% endblock title %}
+
+{% block main-content %}
+
+{% if user.is_staff %}
+    <div class="container mt-4 mb-2">
+        <h2>Add Resource</h2><br>
+        <div class="form-group">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.media}}
+                {{form.as_p}}
+                <input value="Post" type="submit" class="btn btn-secondary">
+            </form>
+        </div>
+    </div>
+
+<script>
+   var name = "{{ user.id }}"
+   document.getElementById("elder").value
+      = name;
+
+</script>
+
+
+{% else %}
+   <p class="m-3">you're not allowed here</p>
+{% endif %} 
+
+{% endblock main-content %}

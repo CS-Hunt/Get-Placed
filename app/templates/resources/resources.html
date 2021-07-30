@@ -1,0 +1,50 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block main-content %}
+
+<div class="container">
+<div class="row">
+{% if user.is_staff %}
+ <a href="{% url 'Add_resources' %}"> <div style="float:right;" class="mt-1 mb-1"><input class="btn btn-success" type="button" value="New"></div></a>
+ {% endif %}
+{% if ResorcesModel_list %}
+    {% for ResorcesModel in object_list %}
+        <div class="col-6 col-md-6 col-lg-4">
+            <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" id="card-text-resp">{{ResorcesModel.title}}</h5>
+                <p class="card-text" id="card-text-resp">{{ResorcesModel.docs|truncatechars:30}}</p>
+            </div>
+            </div>
+        </div>
+
+    {% endfor %}
+  </div>
+</div>
+<br>
+
+     {# .... **Now the pagination section** .... #}
+    {% if is_paginated %}
+        <div class="pagination mt-3">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+    
+
+{% else %}
+
+ <p>No Resources found!!! :(</p>
+
+{% endif %}
+
+{% endblock main-content %}

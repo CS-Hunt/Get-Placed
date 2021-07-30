@@ -21,6 +21,9 @@ urlpatterns = [
     path('update_blog_post/<int:pk>/',views.UpdateBlogPostView.as_view(),name='update_blog_post'),
     path('delete_blog_post/<int:pk>/remove/',views.DeleteblogPostView.as_view(),name='delete_blog_post'),
 
+    path('resources/',views.ResourcesView.as_view(),name="resources"),
+    path('Add_Resources/',views.AddResourcesView.as_view(),name="Add_resources"),
+
     path('edit_profile/',views.UserEditView.as_view(), name='user_edit'),
     path('<int:pk>/Profile/',views.ShowProfileView.as_view(),name="show_profile"),
     path('<int:pk>/edit_profile/',views.EditProfilePageView.as_view(),name="edit_profile"),
