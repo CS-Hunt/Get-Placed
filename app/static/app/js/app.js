@@ -7,7 +7,6 @@ const onLoad = () => {
 
 
 // search-box open close js code
-console.log("hi")
 let navbar = document.querySelector(".navbar");
 let searchBox = document.querySelector(".search-box .bx-search");
 // let searchBoxCancel = document.querySelector(".search-box .bx-x");
@@ -31,7 +30,17 @@ menuOpenBtn.onclick = function () {
 menuCloseBtn.onclick = function () {
     navLinks.style.left = "-100%";
 }
-
+// JavaScript Document
+$(document).ready(function () {
+    $('#autoWidth').lightSlider({
+        autoWidth: true,
+        loop: true,
+        onSliderLoad: function () {
+            $('#autoWidth').removeClass('cS-hidden');
+        }
+    });
+});
+console.log("hiiiiii")
 
 // sidebar submenu open close js code
 let htmlcssArrow = document.querySelector(".htmlcss-arrow");

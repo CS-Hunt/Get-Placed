@@ -22,6 +22,7 @@ urlpatterns = [
     path('delete_blog_post/<int:pk>/remove/',views.DeleteblogPostView.as_view(),name='delete_blog_post'),
 
     path('resources/',views.ResourcesView.as_view(),name="resources"),
+    path('resources-detail/<int:pk>/',views.ResourcesDetailView.as_view(), name="resources_detail"),
     path('Add_Resources/',views.AddResourcesView.as_view(),name="Add_resources"),
 
     path('edit_profile/',views.UserEditView.as_view(), name='user_edit'),

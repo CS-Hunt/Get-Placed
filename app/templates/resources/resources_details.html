@@ -1,0 +1,123 @@
+{% extends "app/base.html" %}
+
+{% load static %}
+
+{% block title %}
+        Resources Details
+{% endblock title %}
+
+{% block main-content %}
+
+
+{% comment %} <div class="container mt-4">
+        <div class="row">
+                <div class="col-lg-2">
+                </div>
+        
+    <div class="col-lg-8">
+    <p class="font-blog-detail-title">{{resorcesmodel.title|capfirst}} </p>
+    <hr>
+
+    <div class="ft-blog-paragraph">
+    {{ resorcesmodel.docs|safe }}
+    </div>
+    <br>
+</div>
+</div>
+</div> {% endcomment %}
+
+
+
+<div class="container my-3">
+<ul id="autoWidth" class="cs-hidden">
+  <a href="{{resorcesmodel.course1_link}}"><li class="item-a">
+	  <!--slider-box1-->
+		<div class="box1">
+		{% comment %} <p class="marvel">MARVEL</p> {% endcomment %}
+		<!--model-->
+		<img class="model" src="{{resorcesmodel.course1_Img.url}}">
+		<!--details-->
+		<div class="details">
+		<!--logo-character-->
+		<img class="logo1" src="" style="height: auto;" width="100px">
+		<!--character-details-->
+		<p>{{resorcesmodel.course1_title}}</p>
+		</div>
+		
+		</div>
+		</li></a>
+		<!--2------------------------------>
+  <a href="{{resorcesmodel.course2_link}}"><li class="item-a">
+	  <!--slider-box1-->
+		<div class="box1">
+		{% comment %} <p class="marvel">MARVEL</p> {% endcomment %}
+		<!--model-->
+		<img class="model" src="{{resorcesmodel.course2_Img.url}}">
+		<!--details-->
+		<div class="details">
+		<!--logo-character-->
+		<img class="logo1" src="" style="height: auto;" width="100px">
+		<!--character-details-->
+		<p>{{resorcesmodel.course2_title}}</p>
+		</div>
+		
+		</div>
+		</li></a>
+		<!--3------------------------------>
+  <a href="{{resorcesmodel.course3_link}}"><li class="item-a">
+	  <!--slider-box1-->
+		<div class="box1">
+		{% comment %} <p class="marvel">MARVEL</p> {% endcomment %}
+		<!--model-->
+		<img class="model" src="{{resorcesmodel.course3_Img.url}}">
+		<!--details-->
+		<div class="details">
+		<!--logo-character-->
+		<img class="logo1" src="" style="height: auto;" width="100px">
+		<!--character-details-->
+		<p>{{resorcesmodel.course3_title}}</p>
+		</div>
+		
+		</div>
+		</li></a>
+		<!--4------------------------------>
+  <a href="{{resorcesmodel.course4_link}}"><li class="item-a">
+	  <!--slider-box1-->
+		<div class="box1">
+		{% comment %} <p class="marvel">MARVEL</p> {% endcomment %}
+		<!--model-->
+		<img class="model" src="{{resorcesmodel.course4_Img.url}}">
+		<!--details-->
+		<div class="details">
+		<!--logo-character-->
+		<img class="logo1" src="" style="height: auto;" width="100px">
+		<!--character-details-->
+		<p>{{resorcesmodel.course4_title}}</p>
+		</div>
+		
+		</div>
+		</li></a>
+		<!--5------------------------------>
+  <a href="{{resorcesmodel.course5_link}}"><li class="item-a">
+	  <!--slider-box1-->
+		<div class="box1">
+		{% comment %} <p class="marvel">MARVEL</p> {% endcomment %}
+		<!--model-->
+		<img class="model" src="{{resorcesmodel.course5_Img.url}}">
+		<!--details-->
+		<div class="details">
+		<!--logo-character-->
+		<img class="logo1" src="" style="height: auto;" width="100px">
+		<!--character-details-->
+		<p>{{resorcesmodel.course5_title}}</p>
+		</div>
+		
+		</div>
+		</li></a>
+		</ul>
+
+	</div>
+
+    
+
+{% endblock main-content %}

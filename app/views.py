@@ -174,8 +174,12 @@ class ResourcesView(ListView):
     paginate_by = 10 
 
 class AddResourcesView(CreateView):
-    model = StudentBlogModel
+    model = ResorcesModel
     form_class = ResorcesModelForm
     template_name = 'resources/add_resources.html'
     # fields = '__all__'
     # fields = ('title','body')
+
+class ResourcesDetailView(DetailView):
+    model = ResorcesModel
+    template_name = 'resources/resources_details.html'

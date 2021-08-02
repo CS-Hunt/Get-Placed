@@ -9,13 +9,25 @@
  {% endif %}
 {% if ResorcesModel_list %}
     {% for ResorcesModel in object_list %}
-        <div class="col-6 col-md-6 col-lg-4">
+        {% comment %} <div class="col-6 col-md-6 col-lg-4">
             <div class="card">
+            <a href="{% url 'resources_detail' ResorcesModel.pk %}">
             <div class="card-body">
-                <h5 class="card-title" id="card-text-resp">{{ResorcesModel.title}}</h5>
-                <p class="card-text" id="card-text-resp">{{ResorcesModel.docs|truncatechars:30}}</p>
+                <h5 class="card-title" id="card-text-resp"></h5></a>
+                <p class="card-text" id="card-text-resp"></p>
             </div>
             </div>
+        </div> {% endcomment %}
+        <div class="col-6 col-md-6 col-lg-4">
+        <a class="card1" href="{% url 'resources_detail' ResorcesModel.pk %}">
+            <h5 id="card-text-resp">{{ResorcesModel.title}}</h5>
+            <p class="small" id="card-text-resp">{{ResorcesModel.docs|truncatechars:30}}</p>
+            <div class="go-corner" href="#">
+            <div class="go-arrow">
+                →
+            </div>
+            </div>
+        </a>
         </div>
 
     {% endfor %}
