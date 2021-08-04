@@ -202,7 +202,16 @@ h6 {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out
 }
+
+/* resources carousel styling */
+
 #autoWidth a{
+    text-decoration: none;
+}
+#autoWidth1 a{
+    text-decoration: none;
+}
+#autoWidth2 a{
     text-decoration: none;
 }
 .container1{
@@ -262,14 +271,9 @@ h6 {
 	transform: scale(1.02);
 	transition: all ease 0.3s;
 }
-.box1:hover .marvel{
-	color:#c0292b;
-	transition: all ease 0.5s;
-}
-/*--responsive for mobile phone--*/
 @media(max-width:720px){
 	.box1{
-		width: 70%;
+		width: 74%;
 		height: 350px;
 	}
 	.model{
