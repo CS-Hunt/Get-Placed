@@ -214,18 +214,12 @@ h6 {
 #autoWidth2 a{
     text-decoration: none;
 }
-.container1{
-	background-color:#a4152c;
-	display:flex;
-	justify-content: center;
-	align-items: center;	
-}
 .box1{
 	width:400px;
 	height:350px;
-	background-color:#1e1e26;
+	background-color:#2b2b2f;
 	border-radius: 10px;
-	box-shadow: 2px 10px 12px rgba(218, 69, 69, 0.5);
+	box-shadow: 2px 10px 12px rgba(65, 65, 66, 0.918);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -266,14 +260,14 @@ h6 {
 	height: 60px;
 }
 .box1:hover{
-	background-color: #17171d;
+	background-color: #333338;
 	transform-style: preserve-3d;
 	transform: scale(1.02);
 	transition: all ease 0.3s;
 }
 @media(max-width:720px){
 	.box1{
-		width: 74%;
+		width: 310px;
 		height: 350px;
 	}
 	.model{

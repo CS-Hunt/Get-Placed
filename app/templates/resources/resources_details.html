@@ -16,10 +16,9 @@
         
     <div class="col-lg-8">
     <p class="font-blog-detail-title">{{resorcesmodel.title|capfirst}} </p>
-    <hr>
 
-    <div class="ft-blog-paragraph">
-    {{ resorcesmodel.docs|safe }}
+    <div class="m-1">
+	<a href="{{ resorcesmodel.docs }}" class="btn btn-light text-primary">Docs</a>
     </div>
     <br>
 </div>
@@ -28,7 +27,7 @@
 
 
 <div class="container my-2">
-<h2 class="mx-2">Best Courses</h2>
+<h2 class="mx-2">Best Courses</h2><hr>
 <ul id="autoWidth" class="cs-hidden">
   <a href="{{resorcesmodel.course1_link}}"><li class="item-a">
 	  <!--slider-box1-->
@@ -86,6 +85,9 @@
 		</div>
 		</li></a>
 		<!--5------------------------------>
+
+		{% if resorcesmodel.course5_link %}
+		
   <a href="{{resorcesmodel.course5_link}}"><li class="item-a">
 	  <!--slider-box1-->
 		<div class="box1">
@@ -100,6 +102,7 @@
 		</div>
 		</li></a>
 		</ul>
+		{% endif %}
 </div>
 
 
@@ -149,6 +152,8 @@
 		</div>
 		</li></a>
 		<!--4------------------------------>
+		{% if resorcesmodel.channel4_link %}
+
   <a href="{{resorcesmodel.channel4_link}}"><li class="item-a">
 	  <!--slider-box1-->
 		<div class="box1">
@@ -162,7 +167,11 @@
 		
 		</div>
 		</li></a>
+		{% endif %}
 		<!--5------------------------------>
+
+		{% if resorcesmodel.channel5_link %}
+
   <a href="{{resorcesmodel.channel5_link}}"><li class="item-a">
 	  <!--slider-box1-->
 		<div class="box1">
@@ -176,6 +185,7 @@
 		
 		</div>
 		</li></a>
+		{% endif %}
 	</ul>
 </div>
 
@@ -210,6 +220,9 @@
 		</div>
 		</li></a>
 		<!--3------------------------------>
+
+		{% if resorcesmodel.Website3_link %}
+		
   <a href="{{resorcesmodel.Website3_link}}"><li class="item-a">
 	  <!--slider-box1-->
 		<div class="box1">
@@ -223,7 +236,11 @@
 		
 		</div>
 		</li></a>
+		{% endif %}
 		<!--4------------------------------>
+
+		{% if resorcesmodel.Website4_link %}
+		
   <a href="{{resorcesmodel.Website4_link}}"><li class="item-a">
 	  <!--slider-box1-->
 		<div class="box1">
@@ -237,7 +254,11 @@
 		
 		</div>
 		</li></a>
+		{% endif %}
 		<!--5------------------------------>
+
+		{% if resorcesmodel.Website5_link %}
+
   <a href="{{resorcesmodel.Website5_link}}"><li class="item-a">
 	  <!--slider-box1-->
 		<div class="box1">
@@ -251,6 +272,7 @@
 		
 		</div>
 		</li></a>
+		{% endif %}
 		</ul>
 </div>
 
