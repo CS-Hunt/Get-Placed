@@ -8,16 +8,16 @@
 
 {% block main-content %}
 
-<div class="container mt-4">
+<div class="container mt-4" id="company-detail">
     <p class="font-blog-detail-title">{{placement_company_detail.title|capfirst}} </p>
-    <small class="ft-blog-paragraph"> By : {{ placement_company_detail.author.first_name|capfirst }} {{ placement_company_detail.author.last_name|capfirst }} - {{placement_company_detail.post_date}} </small>
+    <p class="m-2 d-inline"> By : {{ placement_company_detail.author.first_name|capfirst }} {{ placement_company_detail.author.last_name|capfirst }} - <p class="text-muted d-inline">{{placement_company_detail.post_date}} </p></p> 
                 {% if user.is_authenticated %}
                 {% if request.user.is_staff %}
 
                             <small>
-                                <a href="{% url 'update_job_post' placement_company_detail.pk %}">- (Edit)</a>
+                                <a href="{% url 'update_job_post' placement_company_detail.pk %}" class="btn btn-light text-primary">- (Edit)</a>
 
-                                <a href="{% url 'delete_post' placement_company_detail.pk %}">(Delete)</a>
+                                <a href="{% url 'delete_post' placement_company_detail.pk %}" class="btn btn-light text-primary">(Delete)</a>
                                 
                             </small>
 
@@ -42,97 +42,15 @@
     <div class="ft-blog-paragraph">
     <p>{{ placement_company_detail.Job_Description|safe }}</p>
     </div>
-    <br><hr><br>
-    <p>{{placement_company_detail.job_type}}</p>
-    <a href="{{ placement_company_detail.apply_link }}">Apply</a>
+    <br>
+    <div class="text-center">
+        <a href="{{ placement_company_detail.apply_link }}" class="button-job">Apply</a>
+    </div>
 </div>
 
-
-
-{% comment %} <form action="{% url 'like_post' post.pk %}" method="POST">
-        {% csrf_token %}
-
-        {% if user.is_authenticated %}
-
-        {% if liked %}
-        <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn btn-danger btn-sm">UnLike</button>
-        {% else %}
-
-        <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn btn-primary btn-sm">Like</button>
-
-        {% endif %}
-        {% else %}
-        <a class="" href="{% url 'login' %}">Login to Like</a>
-        {% endif %}
-        - {{total_likes}} Likes
-</form> {% endcomment %}
 
 <br>
 
-{% comment %} <div class="card mb-3">
-        <div class="row no-gutters">
-                <div class="col-md-2">
-                        {% if post.author.profile.profile_pic %}
-                          
-                        <img src="{{post.author.profile.profile_pic.url}}" class="card-img" alt="author's image">
 
-                        {% else %}
-
-                        <img src="{% static 'images/download.png' %}" class="card-img" alt="author's image">
-
-                        {% endif %}
-
-                </div>
-                <div class="col-md-10">
-                        <div class="card-body">
-                                <h5 class="card-title">{{ post.author.first_name|capfirst }} {{ post.author.last_name|capfirst }}</h5>
-                                <p class="small text-muted">
-                                        
-                                        <a href="{% url 'show_profile' post.author.profile.id %}">Profile</a> |
-
-                                        {% if post.author.profile.website_url %}
-                                        <a href="{{ post.author.profile.website_url }}">Website</a> |
-                                        {% endif %}
-
-                                        {% if post.author.profile.facebook_url %}
-                                        <a href="{{ post.author.profile.facebook_url }}">Facebook</a> |
-                                        {% endif %}
-
-                                        {% if post.author.profile.twitter_url %}
-                                        <a href="{{ post.author.profile.twitter_url }}">Twitter</a> |
-                                        {% endif %}
-
-                                        {% if  post.author.profile.instagram_url %}
-                                        <a href="{{ post.author.profile.instagram_url }}">Instagram</a> |
-                                        {% endif %}
-
-                                        {% if post.author.profile.linkdin_url %}
-                                        <a href="{{ post.author.profile.linkdin_url }}">Linkdin</a> 
-                                        {% endif %}
-                                </p>
-                                <p class="card-text">{{ post.author.profile.bio }}</p>
-
-                        </div>
-                </div>
-        </div>
-</div>
-
-<h2>Comments...</h2>
-{% if not post.comments.all %}
- No comments yet... <a href="{% url 'add_comment' post.pk %}">Add One</a> <br>
-{% else %}
-
-<a href="{% url 'add_comment' post.pk %}">Add Comment</a> <br><br>
-
-        {% for comment in post.comments.all %}
-        <strong>{{ comment.name|capfirst }} -
-        {{ comment.date_added }} 
-        </strong> 
-       <br> {{ comment.body }} <br>
-       
-        {% endfor %}
-    <br><a href="{% url 'add_comment' post.pk %}">Add Comment</a> <br>
-{% endif %} {% endcomment %}
-    
 
 {% endblock main-content %}
