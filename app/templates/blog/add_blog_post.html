@@ -14,11 +14,10 @@ Create a new Blog Post
                 {% csrf_token %}
                 {{form.media}}
                 {{form.as_p}}
-                <input value="Post" type="submit" class="btn btn-secondary">
+                <input value="Post" type="submit" class="btn btn-primary">
             </form>
         </div>
     </div>
-
 <script>
    var name = "{{ user.id }}"
    document.getElementById("elder").value

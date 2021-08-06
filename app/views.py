@@ -188,3 +188,15 @@ class AddResourcesView(CreateView):
 class ResourcesDetailView(DetailView):
     model = ResorcesModel
     template_name = 'resources/resources_details.html'
+
+def OnCampusView(request):
+    data = Placement_Company_Detail.objects.filter(job_type='On-Campus')
+    return render(request, 'app/OnCampusJob.html',{'items':data})
+
+def OffCampusView(request):
+    data = Placement_Company_Detail.objects.filter(job_type='Off-Campus')
+    return render(request, 'app/OffCampusJob.html',{'items':data})
+
+def Internship(request):
+    data = Placement_Company_Detail.objects.filter(job_type='Internship')
+    return render(request, 'app/Internship.html',{'items':data})

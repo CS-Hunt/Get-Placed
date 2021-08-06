@@ -1,0 +1,83 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block main-content %}
+
+<div class="container">
+  {% if user.is_staff %}
+    <a href="{% url 'Add_Job_Post' %}"> <div style="float:right;" class="mt-1 mb-1"><input class="btn btn-success" type="button" value="New"></div></a>
+  {% endif %}
+</div>
+
+{% if items %}
+<div class="mt-5">
+    {% for item in items %}
+       <div class="container ">
+        <div class="card mb-3" style="max-width: 840px;">
+            <div class="row g-0" href="{% url 'Job_Description' item.pk %}">
+                <div class="col-md-4">
+                {% if item.Company_image %}
+
+                    <img class="img-fluid rounded-start" src="{{item.Company_image.url}}">
+                {% else %}
+
+                    <img class="img-fluid rounded-start" src="{% static "app/images/default.jpg" %}">
+
+                {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"> <a href="{% url 'Job_Description' item.pk %}">{{ item.title|capfirst}}</a></h5> ~ 
+                        <small class="card-title">{{item.author.first_name|capfirst}}
+                        {{item.author.last_name|capfirst}} - {{item.post_date}}</small>
+
+                        {% if user.is_authenticated %}
+                        {% if request.user.is_staff %}
+
+                            <small>
+                                <a href="{% url 'update_job_post' item.pk %}">- (Edit)</a>
+
+                                <a href="{% url 'delete_post' item.pk %}">(Delete)</a>
+                                
+                            </small>
+
+                        {% endif %}
+                        {% endif %}
+
+                        <p class="card-text">{{item.snippet}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+   </div>
+
+<br>
+    {% endfor %}
+
+
+     {# .... **Now the pagination section** .... #}
+    {% if is_paginated %}
+        <div class="pagination mt-3">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+    
+
+{% else %}
+
+ <p>No Post found!!! :(</p>
+
+{% endif %}
+
+{% endblock main-content %}

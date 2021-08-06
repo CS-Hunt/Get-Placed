@@ -14,6 +14,10 @@ urlpatterns = [
     path('Add_Job_Post/',views.AddJobView.as_view(),name="Add_Job_Post"),
     path('update_job_post/<int:pk>/',views.UpdateJobPostView.as_view(),name='update_job_post'),
     path('delete_post/<int:pk>/remove/',views.DeleteJobPostView.as_view(),name='delete_post'),
+    # path('job/',views.JobView.as_view(),name="Job-view"),
+    path('on-campus/',views.OnCampusView,name="on-campus"),
+    path('off-campus/',views.OffCampusView,name="off-campus"),
+    path('Internship/',views.Internship,name="Internship"),
 
     path('Blog/',views.BlogView.as_view(),name="blog"),
     path('Blog-Article/<int:pk>/',views.BlogDetailView.as_view(), name="Blog_Description"),
