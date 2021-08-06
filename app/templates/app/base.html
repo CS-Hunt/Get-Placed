@@ -33,7 +33,15 @@
       <div class="logo"><a href="{% url 'home' %}">Get Placed</a></div>
       <div class="nav-links">
         <div class="sidebar-logo">
-          <span class="logo-name">Get Placed</span>
+        {% if user.is_authenticated %}
+          {% if user.first_name %}
+              <span class="logo-name">{{user.first_name|capfirst}} {{user.last_name|capfirst}}</span>
+          {% else %}
+              <span class="logo-name">{{user.username|capfirst}}</span>
+          {% endif %}
+        {% else %}
+              <span class="logo-name">Get Placed</span>
+        {% endif %}
           <i class='bx bx-x' ></i>
         </div>
         <ul class="links">
@@ -49,13 +57,10 @@
               <li><a href="#">Complete Website</a></li>
             </ul>
           </li> {% endcomment %}
-          <li><a href="#">ABOUT US</a></li>
           <li><a href="{% url 'blog' %}">BLOG</a></li>
+          <li><a href="#">ABOUT US</a></li>
            {% comment %} <li> <img src="{{ request.user.profile.profile_pic.url }}" alt="hi"></li> {% endcomment %}
 
-          {% if user.is_staff %}
-            <li><a href="{% url "Add_Job_Post" %}">ADD JOB POST</a></li>
-          {% endif %}
           {% if user.is_authenticated %}
           
           {% if user.profile.profile_pic %}

@@ -36,18 +36,36 @@
     {{ studentblogmodel.body|safe }}
     </div>
     <br><hr><br>
-    <h6>By:</h6>
-<div class="row">
-        <div class="col-lg-8">
-                <div class="card shadow rounded">
-                <h5 class="card-header">{{ studentblogmodel.author.first_name|capfirst }} {{ studentblogmodel.author.last_name|capfirst }}</h5>
-                <div class="card-body">
-                <p class="card-text">{{studentblogmodel.author.profile.bio}}</p>
-                <a href="{% url 'show_profile' studentblogmodel.author.profile.id %}" class="btn btn-primary">Check Profile</a>
-                </div>
-                </div>
-</div>
-</div>
+            <div class="col-lg-8">
+                <div class="profile-feed">
+                    <div class="d-flex align-items-start profile-feed-item">
+                    {% if studentblogmodel.author.profile.profile_pic %}
+                        <a href="{% url 'show_profile' studentblogmodel.author.profile.id %}"><img src="{{studentblogmodel.author.profile.profile_pic.url}}" alt="profile" class="img-sm rounded-circle mb-5 mx-2"></a>
+                    {% else %}
+                        <a href="{% url 'show_profile' studentblogmodel.author.profile.id %}"><img src="{% static 'app/images/default2.png' %}" alt="profile" class="img-sm rounded-circle mb-5 mx-2"></a>
+                    {% endif %}
+
+                      <div class="ml-4">
+                        <h5>
+                        {% if studentblogmodel.author.first_name or studentblogmodel.author.last_name %}
+                            {{studentblogmodel.author.first_name|capfirst}}
+                            {{studentblogmodel.author.last_name|capfirst}} 
+                        {% else %}
+                            {{studentblogmodel.author.username|capfirst}}
+                        {% endif %}
+                          <small class="ml-4 text-muted">
+                        </h5>
+                        <a href="{% url 'show_profile' studentblogmodel.author.profile.id %}" class="text-decoration-none">
+                            <p class="h6 text-muted">
+                            {{studentblogmodel.author.profile.bio|truncatechars:200}}
+                            </p>
+                        </a>
+                      </div>
+                    </div>
+                 </div>
+              <br>
+            </div>
+
 </div>
 
 

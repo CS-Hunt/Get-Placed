@@ -2,6 +2,12 @@
 {% load static %}
 {% block main-content %}
 
+<div class="container">
+  {% if user.is_staff %}
+    <a href="{% url 'Add_Job_Post' %}"> <div style="float:right;" class="mt-1 mb-1"><input class="btn btn-success" type="button" value="New"></div></a>
+  {% endif %}
+</div>
+
 <div class="mt-5">
 {% if Placement_Company_Detail_list %}
     {% for Placement_Company_Detail in object_list %}

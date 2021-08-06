@@ -19,48 +19,61 @@
         {% url 'account_login' %}"><div style="float:right;" class="mt-1"><input class="btn btn-success" type="button" value="New"></div></a>
     {% endif %}
 </div>
+
 <div class="mt-5">
+<div class="container text-center">
+    <h5 class="text-dark">Feed</h5>
+</div>
 {% if StudentBlogModel_list %}
     {% for StudentBlogModel in object_list %}
-    <div class="container mt-1">
-        <div class="card mb-1" style="max-width: 840px;">
-             <div class="row g-0" href="{% url 'Blog_Description' StudentBlogModel.pk %}"> 
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title"> <a href="{% url 'Blog_Description' StudentBlogModel.pk %}">{{ StudentBlogModel.title|capfirst}}</a></h5> ~ 
-                        {% if StudentBlogModel.author.first_name or StudentBlogModel.author.last_name%}
-                            <small class="card-title">{{StudentBlogModel.author.first_name|capfirst}}
-                            {{StudentBlogModel.author.last_name|capfirst}} - {{StudentBlogModel.post_date}}</small>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+            <hr>
+                <div class="profile-feed">
+                    <div class="d-flex align-items-start profile-feed-item">
+                    {% if StudentBlogModel.author.profile.profile_pic %}
+                        <a href="{% url 'show_profile' StudentBlogModel.author.profile.id %}"><img src="{{StudentBlogModel.author.profile.profile_pic.url}}" alt="profile" class="img-sm rounded-circle mb-5 mx-2"></a>
+                    {% else %}
+                        <a href="{% url 'show_profile' StudentBlogModel.author.profile.id %}"><img src="{% static 'app/images/download.jpeg' %}" alt="profile" class="img-sm rounded-circle mb-5 mx-2"></a>
+                    {% endif %}
+
+                      <div class="ml-4">
+                        <h5>
+                        {% if StudentBlogModel.author.first_name or StudentBlogModel.author.last_name %}
+                            {{StudentBlogModel.author.first_name|capfirst}}
+                            {{StudentBlogModel.author.last_name|capfirst}} 
                         {% else %}
-                            <small class="card-title">{{StudentBlogModel.author.username|capfirst}}
-                             - {{StudentBlogModel.post_date}}</small>
+                            {{StudentBlogModel.author.username|capfirst}}
                         {% endif %}
-                        
-                       
+                          <small class="ml-4 text-muted">
                         {% if user.is_authenticated %}
                         {% if user.id == StudentBlogModel.author.id or request.user.is_staff %}
 
                             <small>
-                                <a href="{% url 'update_blog_post' StudentBlogModel.pk %}">- (Edit)</a>
+                                <a href="{% url 'update_blog_post' StudentBlogModel.pk %}" class="btn btn-light text-primary btn-sm">Edit</a>
 
-                                <a href="{% url 'delete_blog_post' StudentBlogModel.pk %}">(Delete)</a>
+                                <a href="{% url 'delete_blog_post' StudentBlogModel.pk %}" class="btn btn-light text-primary btn-sm">Delete</a>
                                 
                             </small>
 
                         {% endif %}
-                        {% endif %} 
-
-                        <p class="card-text">{{StudentBlogModel.snippet|truncatechars:100}}</p>
+                        {% endif %}  <small class="Timeblog"><i class="fas fa-clock mx-2"></i>{{StudentBlogModel.post_date}}</small></small>
+                        </h5>
+                        <a href="{% url 'Blog_Description' StudentBlogModel.pk %}" class="text-decoration-none">
+                            <h6 class="h6 text-dark">
+                            {{StudentBlogModel.title|truncatechars:200}}
+                            </h6>
+                            <p class="text-muted">{{StudentBlogModel.snippet|truncatechars:100}}</p>
+                        </a>
+                      </div>
                     </div>
-                </div>
+                 </div>
+              <br>
             </div>
         </div>
     </div>
-   </div>
-</div>
-<br>
-    {% endfor %}
-
+{% endfor %}
 
      {# .... **Now the pagination section** .... #}
     {% if is_paginated %}

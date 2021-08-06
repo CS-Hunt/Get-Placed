@@ -24,7 +24,6 @@
          <h3>Login</h3>
          <hr>
                 <form method="POST" action="{% url 'account_login' %}" class="shadow p-4 mb-3">
-                
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}

@@ -6,6 +6,7 @@ from .forms import Job_Post_Form,UserLoginForm,ProfilePageView,EditProfileFormPa
 from allauth.account.views import PasswordChangeView,LoginView
 from django.urls import reverse_lazy,reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 
 class HomeView(ListView):
     model = Placement_Company_Detail
@@ -138,6 +139,10 @@ class BlogView(ListView):
     ordering = ['-post_date']
     context_object_name = "StudentBlogModel_list"    #default is object_list as well as model's_verbose_name_list and/or model's_verbose_name_plural_list, if defined in the model's inner Meta class
     paginate_by = 10  
+    def get_context_data(self, *args,**kwargs):
+        context = super(BlogView, self).get_context_data(**kwargs)
+        context['page_user'] = Profile.objects.all()
+        return context
 
 
 class BlogDetailView(DetailView):
