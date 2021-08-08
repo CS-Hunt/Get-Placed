@@ -5,19 +5,10 @@
 <div class="container">
 <div class="row">
 {% if user.is_staff %}
- <a href="{% url 'Add_resources' %}"> <div style="float:right;" class="mt-1 mb-1"><input class="btn btn-success" type="button" value="New"></div></a>
+ <a href="{% url 'Add_resources' %}"> <div style="float:right;" class="mt-2"><input class="btn btn-success" type="button" value="New"></div></a>
  {% endif %}
 {% if ResorcesModel_list %}
     {% for ResorcesModel in object_list %}
-        {% comment %} <div class="col-6 col-md-6 col-lg-4">
-            <div class="card">
-            <a href="{% url 'resources_detail' ResorcesModel.pk %}">
-            <div class="card-body">
-                <h5 class="card-title" id="card-text-resp"></h5></a>
-                <p class="card-text" id="card-text-resp"></p>
-            </div>
-            </div>
-        </div> {% endcomment %}
         <div class="col-6 col-md-6 col-lg-4 mt-3">
         <a class="card1" href="{% url 'resources_detail' ResorcesModel.pk %}">
             <h5 id="card-text-resp">{{ResorcesModel.title}}</h5>

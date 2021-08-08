@@ -21,9 +21,9 @@
                {% if user.id == studentblogmodel.author.id or request.user.is_staff %}
 
                             <small>
-                                <a href="{% url 'update_blog_post' studentblogmodel.pk %}">- (Edit)</a>
+                                <a href="{% url 'update_blog_post' studentblogmodel.pk %}" class="text-decoration-none text-primary">- Edit </a>
 
-                                <a href="{% url 'delete_blog_post' studentblogmodel.pk %}">(Delete)</a>
+                                <a href="{% url 'delete_blog_post' studentblogmodel.pk %}" class="text-decoration-none m-1 text-danger"> Delete</a>
                                 
                             </small>
 

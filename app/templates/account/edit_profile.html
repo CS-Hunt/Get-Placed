@@ -6,20 +6,17 @@ Edit Profile
 
 {% block main-content %}
 
-<div class="container my-4">
-
-<h2>Edit Setting</h2><hr>
-
-{% comment %} {{user.profile.bio}} <br> <br> {% endcomment %}
-
-<div class="form-group">
-<form action="" class="mb-3" method="POST">
-{% csrf_token %}
-{{form.as_p}}
-<input value="Save Changes" type="submit" class="btn btn-secondary">
-</form>
-</div>
-
+<div class="margin-2">
+    <div class="container my-4">
+        <h2>Edit Setting</h2><hr>
+            <div class="form-group">
+                <form action="" class="mb-3" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input value="Save Changes" type="submit" class="btn btn-secondary">
+                </form>
+        </div>
+    </div>
 </div>
 
 {% endblock main-content %}

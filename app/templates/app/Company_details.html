@@ -8,6 +8,7 @@
 
 {% block main-content %}
 
+<div class="margin-2">
 <div class="container mt-4" id="company-detail">
     <p class="font-blog-detail-title">{{placement_company_detail.title|capfirst}} </p>
     <p class="m-2 d-inline"> By : {{ placement_company_detail.author.first_name|capfirst }} {{ placement_company_detail.author.last_name|capfirst }} - <p class="text-muted d-inline">{{placement_company_detail.post_date}} </p></p> 
@@ -46,6 +47,7 @@
     <div class="text-center">
         <a href="{{ placement_company_detail.apply_link }}" class="button-job">Apply</a>
     </div>
+</div>
 </div>
 
 

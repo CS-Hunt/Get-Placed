@@ -7,6 +7,7 @@ from allauth.account.views import PasswordChangeView,LoginView
 from django.urls import reverse_lazy,reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
 
 class HomeView(ListView):
     model = Placement_Company_Detail
@@ -190,13 +191,22 @@ class ResourcesDetailView(DetailView):
     template_name = 'resources/resources_details.html'
 
 def OnCampusView(request):
-    data = Placement_Company_Detail.objects.filter(job_type='On-Campus')
-    return render(request, 'app/OnCampusJob.html',{'items':data})
+    data = Placement_Company_Detail.objects.filter(job_type='On-Campus').order_by('-post_date')
+    paginator = Paginator(data, 8) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'app/OnCampusJob.html',context={'page_obj':page_obj})
 
 def OffCampusView(request):
-    data = Placement_Company_Detail.objects.filter(job_type='Off-Campus')
-    return render(request, 'app/OffCampusJob.html',{'items':data})
+    data = Placement_Company_Detail.objects.filter(job_type='Off-Drive').order_by('-post_date')
+    paginator = Paginator(data, 8) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'app/OffCampusJob.html',context={'page_obj':page_obj})
 
 def Internship(request):
-    data = Placement_Company_Detail.objects.filter(job_type='Internship')
-    return render(request, 'app/Internship.html',{'items':data})
+    data = Placement_Company_Detail.objects.filter(job_type='Internship').order_by('-post_date')
+    paginator = Paginator(data, 8) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'app/Internship.html',context={'page_obj':page_obj})

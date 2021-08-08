@@ -27,7 +27,7 @@
    </head>
 <body onload="onLoad()">
 <div id="loading"></div>
-  <nav class="">
+  <nav  id="navbar">
     <div class="navbar">
       <i class='bx bx-menu'></i>
       <div class="logo"><a href="{% url 'home' %}">Get Placed</a></div>
@@ -52,7 +52,7 @@
             <ul class="htmlCss-sub-menu sub-menu">
               <li><a href="{% url "Internship" %}">Internship</a></li>
               <li><a href="{% url "off-campus" %}">Off-Campus</a></li>
-              <li><a href="{% url "on-campus" %}">Campus Drive</a></li>
+              <li><a href="{% url "on-campus" %}">Campus Drive (NIET)</a></li>
             </ul>
           </li>
           <li><a href="{% url 'blog' %}">BLOG</a></li>
@@ -127,6 +127,22 @@
       </div>
     </div>
   </nav>
+
+{% comment %} <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
+<div id='title'>
+  <span>
+    PURE CSS
+  </span>
+  <br>
+  <span>
+    PARALLAX PIXEL STARS
+  </span>
+</div> {% endcomment %}
+
+
   {% block banner %}{% endblock banner %}
   {% block main-content %}{% endblock main-content %}
 
@@ -150,8 +166,6 @@
       <div class="link-boxes">
         <ul class="box input-box">
           <li class="link_name">About us</li>
-          {% comment %} <li><input type="text" placeholder="Enter your email"></li>
-          <li><input type="button" value="Subscribe"></li> {% endcomment %}
           <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, nisi at repudiandae ratione explicabo vero cumque doloremque velit quo ipsam quis, dolor modi soluta temporibus libero aliquam facilis animi esse voluptatem veniam quasi a earum. Quam eos labore, quae id cum fugit rem iste beatae maxime numquam suscipit ducimus debitis.</p>
         </ul>
         <ul class="box input-box">
@@ -170,7 +184,7 @@
         </span>
       </div>
     </div>
-  </footer>
+  </footer> 
   {% block common_scripts %}{% endblock common_scripts %}
 
   <!-- JavaScript Bundle with Popper -->

@@ -8,23 +8,23 @@
 
 {% block main-content %}
 
+<div class="margin-2">
+	<div class="container">
+			<div class="row">
+					<div class="col-lg-2">
+					</div>
+			
+		<div class="col-lg-8">
+			<p class="font-blog-detail-title">{{resorcesmodel.title|capfirst}} </p>
 
-<div class="container mt-4">
-        <div class="row">
-                <div class="col-lg-2">
-                </div>
-        
-    <div class="col-lg-8">
-    <p class="font-blog-detail-title">{{resorcesmodel.title|capfirst}} </p>
-
-    <div class="m-1">
-	<a href="{{ resorcesmodel.docs }}" class="btn btn-light text-primary">Docs</a>
-    </div>
-    <br>
+			<div class="m-1">
+			<a href="{{ resorcesmodel.docs }}" class="btn btn-light text-primary">Docs</a>
+			</div>
+		<br>
+			</div>
+	</div>
 </div>
 </div>
-</div>
-
 
 <div class="container my-2">
 <h2 class="mx-2">Best Courses</h2><hr>

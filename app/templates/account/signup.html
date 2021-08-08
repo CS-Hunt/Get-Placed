@@ -20,8 +20,9 @@
 
 {% if not request.user.is_authenticated %}
 
+<div class="margin-2">
 <div class="container">
-   <div class="row my-3">
+   <div class="row my-2">
       <div class="col-sm-6 offset-sm-3">
          <h3>Signup</h3>
          <hr>
@@ -52,7 +53,7 @@
       </div>
    </div>
 </div>
-
+</div>
 {% else %}
 
 you're not allowed here

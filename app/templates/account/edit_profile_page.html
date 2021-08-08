@@ -9,19 +9,19 @@ Edit profile page
 {% if user.is_authenticated %}
 {% if user.id == profile.user.id %}
 
-<div class="container mt-4">
-        <h2>Edit Profile</h2><hr>
-        <div class="form-group mb-3">
-            <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{form.media}}
-            {{form.as_p}}
-            <input value="Save" type="submit" class="btn btn-secondary">
-            </form>
-        </div>
+<div class="margin-2">
+    <div class="container">
+            <h2>Update Profile</h2><hr>
+            <div class="form-group mb-3">
+                <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.media}}
+                {{form.as_p}}
+                <input value="Save" type="submit" class="btn btn-secondary">
+                </form>
+            </div>
+    </div>
 </div>
-
-
 {% else %}
 
 <h3>You are not the correct user</h3>
