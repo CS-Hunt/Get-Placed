@@ -2,6 +2,86 @@
 {% load static %}
 {% block main-content %}
 
+<header>
+	<div class="overlay container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="text-container">
+          <h1>Let us give the best</h1>
+          <p class="p-large">Get Placed provides free educational & employment information to help job seekers.</p>
+            <a class="btn-solid-lg page-scroll" href="#description">Discover</a>
+            {% if not user.is_authenticated %}
+              <a class="btn-outline-lg" href="{% url 'account_signup' %}">Sign Up</a>
+            {% else %}
+            {% endif %}
+          </div>
+      </div>
+      <div class="col-sm-6">
+          <img src="{% static 'app/images/phone.svg' %}" width="400px" class="img-fluid mt-5" />
+      </div>
+    </div>
+	</div>
+</header>
+
+ <!-- Description -->
+    <div id="description" class="cards-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <br><br><br><br><br>
+                    <h2 class="h2-heading">Marketing Automation Will Bring A Lot More Qualified Leads</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="{% static 'app/images/home4.svg' %}" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">List Builder</h5>
+                            <p>It's very easy to start creating email lists for your marketing actions. Just create your Tivo account</p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+                </div>
+                <div class="col-lg-4">
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="{% static 'app/images/home2.svg' %}" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Campaign Tracker</h5>
+                            <p>Campaigns is a feature we've developed since the beginning because it's at the core of Tivo's functionalities</p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+                  </div>
+
+                  <div class="col-lg-4">
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="{% static 'app/images/home3.svg' %}" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Analytics Tool</h5>
+                            <p>Tivo collects customer data in order to help you analyse different situations and take required action</p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+                  </div>
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of cards-1 -->
+    <!-- end of description -->
+
+
+
 <div class="container">
   {% if user.is_staff %}
     <a href="{% url 'Add_Job_Post' %}"> <div style="float:right;" class="mt-1 mb-1"><input class="btn btn-success" type="button" value="New"></div></a>
