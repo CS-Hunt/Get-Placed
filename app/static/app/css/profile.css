@@ -51,10 +51,10 @@ header .overlay h1{
 	color: #fff; 
 	text-decoration: none;
 }
-.header .btn-solid-lg {
+/* .header .btn-solid-lg {
 	margin-bottom: 0.8rem;
-}
-.header .btn-solid-lg,
+} */
+/* .header .btn-solid-lg,
 .header .btn-outline-lg {
 	margin-right: 0.25rem;
 	margin-left: 0.25rem;
@@ -63,14 +63,10 @@ header .overlay h1{
 	border: 1px solid #ffffff;
 	background-color: #ffffff;
 	color: rgb(0, 34, 35);
-}
+} */
 .p-large{
     font-size: 1.125rem;
     line-height: 1.75rem;
-}
-.header .btn-solid-lg:hover {
-	background-color: transparent;
-	color: #ffffff;
 }
 .btn-outline-lg {
 	display: inline-block;
@@ -91,11 +87,6 @@ header .overlay h1{
 	background-color:#fff;
 	color: #000;
 	text-decoration: none;
-}
-
-.header .btn-outline-lg {
-	border: 1px solid #ffffff;
-	color: #ffffff;
 }
 /* end of home button */
 
@@ -478,11 +469,6 @@ h6 {
     header .overlay h1{
         margin-top: -10px;
     }
-    .header .btn-solid-lg,
-	.header .btn-outline-lg {
-		margin-right: 0.5rem;
-		margin-left: 0;
-	}
     .btn-solid-lg {
         display: inline-block;
         padding: 1.1rem 1.8rem 1.1rem 1.8rem;
