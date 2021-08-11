@@ -29,11 +29,7 @@ SECRET_KEY = 'v(s_1s5r9!4xcx++v9s62ha#)xl$&h6=g-r+02x2@u6fmu8w(0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
 ALLOWED_HOSTS = ['getplaced.pythonanywhere.com','localhost','192.168.43.35']
-=======
-ALLOWED_HOSTS = ['getplaced.herokuapp.com','localhost','192.168.43.35']
->>>>>>> 5fb0dbf0ac60d84d8380a420c96a44b347058bdc
 
 
 # Application definition
