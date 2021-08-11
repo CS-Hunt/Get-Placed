@@ -117,7 +117,7 @@ class ProfilePageView(forms.ModelForm):
                 # 'profile_pic': forms.ImageField(),
                 'Gender': forms.Select(attrs={'class':'form-control'}),
                 'Mobile_Number': forms.TextInput(attrs={'class':'form-control','placeholder':'Enter your Mobile number'}),
-                'city': forms.TextInput(attrs={'class':'forms-control'}),
+                'city': forms.TextInput(attrs={'class':'form-control'}),
                 'state': forms.Select(attrs={'class':'form-control'}),
                 'twitter_url': forms.TextInput(attrs={'class':'form-control'}),
                 'instagram_url': forms.TextInput(attrs={'class':'form-control'}),

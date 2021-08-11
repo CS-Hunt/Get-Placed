@@ -148,7 +148,7 @@ class BlogView(ListView):
 
 class BlogDetailView(DetailView):
     model = StudentBlogModel
-    template_name = 'Blog/Blog_details.html'
+    template_name = 'blog/Blog_details.html'
 
 
 class AddBlogView(CreateView):

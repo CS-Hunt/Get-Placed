@@ -23,10 +23,17 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'v(s_1s5r9!4xcx++v9s62ha#)xl$&h6=g-r+02x2@u6fmu8w(0'
 
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = os.environ['SECRET_KEY']
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['getplaced.pythonanywhere.com','localhost','192.168.43.35']
+=======
+ALLOWED_HOSTS = ['getplaced.herokuapp.com','localhost','192.168.43.35']
+>>>>>>> 5fb0dbf0ac60d84d8380a420c96a44b347058bdc
 
 
 # Application definition
@@ -49,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -144,6 +152,9 @@ MEDIA_URL = '/media/'
 # ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_ROOT = BASE_DIR / 'static'
+
 
 SITE_ID = 2
 LOGIN_REDIRECT_URL = '/'
