@@ -29,8 +29,13 @@ class HomeView(ListView):
     #     page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
     #     context["page_user"] = page_user
     #     return context
-        
 
+def AboutView(request):
+    return render(request, 'app/About.html')   
+
+def TermsAndCondition(request):
+    return render(request, 'app/Terms&Condition.html')   
+    
 class CompanyDetailView(DetailView):
     model = Placement_Company_Detail
     template_name = 'app/Company_details.html'

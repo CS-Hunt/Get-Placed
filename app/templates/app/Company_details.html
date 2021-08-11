@@ -16,9 +16,9 @@
                 {% if request.user.is_staff %}
 
                             <small>
-                                <a href="{% url 'update_job_post' placement_company_detail.pk %}" class="btn btn-light text-primary">- (Edit)</a>
+                                <a href="{% url 'update_job_post' placement_company_detail.pk %}" class="btn btn-light text-primary btn-sm">- (Edit)</a>
 
-                                <a href="{% url 'delete_post' placement_company_detail.pk %}" class="btn btn-light text-primary">(Delete)</a>
+                                <a href="{% url 'delete_post' placement_company_detail.pk %}" class="btn btn-light text-danger btn-sm">(Delete)</a>
                                 
                             </small>
 

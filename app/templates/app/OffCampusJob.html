@@ -2,6 +2,12 @@
 {% load static %}
 {% block main-content %}
 
+<div class="heading-job">
+  <div class="curl">
+    <h2 class="text-center">Off-Campus</h2>
+  </div>
+</div>
+
 <div class="container">
   {% if user.is_staff %}
     <a href="{% url 'Add_Job_Post' %}"> <div style="float:right;" class="mt-1 mb-1"><input class="btn btn-success" type="button" value="New"></div></a>

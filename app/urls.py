@@ -18,6 +18,8 @@ urlpatterns = [
     path('on-campus/',views.OnCampusView,name="on-campus"),
     path('off-campus/',views.OffCampusView,name="off-campus"),
     path('Internship/',views.Internship,name="Internship"),
+    path('About/',views.AboutView,name="about_us"),
+    path('Terms-and-condition/',views.TermsAndCondition,name="terms_condition"),
 
     path('Blog/',views.BlogView.as_view(),name="blog"),
     path('Blog-Article/<int:pk>/',views.BlogDetailView.as_view(), name="Blog_Description"),

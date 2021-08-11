@@ -8,7 +8,7 @@
       <div class="col-sm-6">
         <div class="text-container">
           <h1>Let us give the best</h1>
-          <p class="p-large">Get Placed provides free educational & employment information to help job seekers.</p>
+          <p class="h5">Get Placed provides educational & employment information to help students or job seekers.</p>
             <a class="btn-solid-lg page-scroll" href="#description">Discover</a>
             {% if not user.is_authenticated %}
               <a class="btn-outline-lg" href="{% url 'account_signup' %}">Sign Up</a>
@@ -29,48 +29,48 @@
             <div class="row">
                 <div class="col-lg-12">
                     <br><br><br><br><br>
-                    <h2 class="h2-heading">Marketing Automation Will Bring A Lot More Qualified Leads</h2>
+                    <h2 class="h2-heading">Services</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
                 <div class="col-lg-4">
                     <!-- Card -->
-                    <div class="card">
+                    <a href="{% url 'resources' %}" class="text-decoration-none text-dark"><div class="card">
                         <div class="card-image">
                             <img class="img-fluid" src="{% static 'app/images/home4.svg' %}" alt="alternative">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">List Builder</h5>
-                            <p>It's very easy to start creating email lists for your marketing actions. Just create your Tivo account</p>
+                            <h5 class="card-title">Resources</h5>
+                            <p>Get Placed help you to find the best courses available on Internet.It encourage people to teach themselves new skills/technology online.</p>
                         </div>
-                    </div>
+                    </div></a>
                     <!-- end of card -->
                 </div>
                 <div class="col-lg-4">
                     <!-- Card -->
-                    <div class="card">
+                    <a href="#job" class="text-decoration-none text-dark"><div class="card">
                         <div class="card-image">
                             <img class="img-fluid" src="{% static 'app/images/home2.svg' %}" alt="alternative">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Campaign Tracker</h5>
-                            <p>Campaigns is a feature we've developed since the beginning because it's at the core of Tivo's functionalities</p>
+                            <h5 class="card-title">Job</h5>
+                            <p>Get Placed provides information of upcoming off-campus hiring drives, Internships. <a href="{% url 'terms_condition' %}" style="text-decoration:none;">read more</a></p>
                         </div>
-                    </div>
+                    </div></a>
                     <!-- end of card -->
                   </div>
 
                   <div class="col-lg-4">
                     <!-- Card -->
-                    <div class="card">
+                    <a href="{% url 'blog' %}" class="text-decoration-none text-dark"><div class="card">
                         <div class="card-image">
                             <img class="img-fluid" src="{% static 'app/images/home3.svg' %}" alt="alternative">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Analytics Tool</h5>
-                            <p>Tivo collects customer data in order to help you analyse different situations and take required action</p>
+                            <h5 class="card-title">Blog</h5>
+                            <p>Get Placed also acts a blogging platform from which people can share their knowledge, tech reviews, and daily life hacks.</p>
                         </div>
-                    </div>
+                    </div></a>
                     <!-- end of card -->
                   </div>
 
@@ -82,7 +82,7 @@
 
 
 
-<div class="container">
+<div class="container" >
   {% if user.is_staff %}
     <a href="{% url 'Add_Job_Post' %}"> <div style="float:right;" class="mt-1 mb-1"><input class="btn btn-success" type="button" value="New"></div></a>
   {% endif %}
@@ -91,7 +91,7 @@
 <div class="margin-2">
 {% if Placement_Company_Detail_list %}
     {% for Placement_Company_Detail in object_list %}
-       <div class="container ">
+       <div class="container">
         <div class="card mb-3" style="max-width: 840px;">
             <div class="row g-0" href="{% url 'Job_Description' Placement_Company_Detail.pk %}">
                 <div class="col-md-4">
@@ -106,24 +106,24 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title"> <a href="{% url 'Job_Description' Placement_Company_Detail.pk %}">{{ Placement_Company_Detail.title|capfirst}}</a></h5> ~ 
-                        <small class="card-title">{{Placement_Company_Detail.author.first_name|capfirst}}
+                        <h4 class="card-title"> <a href="{% url 'Job_Description' Placement_Company_Detail.pk %}" class="text-decoration-none text-dark">{{ Placement_Company_Detail.title|capfirst}}</a></h4>
+                        <small class="card-title text-muted"> ~ {{Placement_Company_Detail.author.first_name|capfirst}}
                         {{Placement_Company_Detail.author.last_name|capfirst}} - {{Placement_Company_Detail.post_date}}</small>
 
                         {% if user.is_authenticated %}
                         {% if request.user.is_staff %}
 
                             <small>
-                                <a href="{% url 'update_job_post' Placement_Company_Detail.pk %}">- (Edit)</a>
+                                <a href="{% url 'update_job_post' Placement_Company_Detail.pk %}" class="text-decoration-none text-primary">- (Edit)</a>
 
-                                <a href="{% url 'delete_post' Placement_Company_Detail.pk %}">(Delete)</a>
+                                <a href="{% url 'delete_post' Placement_Company_Detail.pk %}" class="text-decoration-none text-danger">(Delete)</a>
                                 
                             </small>
 
                         {% endif %}
                         {% endif %}
 
-                        <p class="card-text">{{Placement_Company_Detail.snippet}}</p>
+                        <p class="card-text h6">{{Placement_Company_Detail.snippet}}</p>
                     </div>
                 </div>
             </div>
