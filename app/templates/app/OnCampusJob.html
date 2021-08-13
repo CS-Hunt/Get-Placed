@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title"> <a href="{% url 'Job_Description' item.pk %}">{{ item.title|capfirst}}</a></h5> ~ 
+                        <h5 class="card-title"> <a href="{% url 'Job_Description' item.pk %}" class="text-decoration-none text-dark">{{ item.title|capfirst}}</a></h5> ~ 
                         <small class="card-title">{{item.author.first_name|capfirst}}
                         {{item.author.last_name|capfirst}} - {{item.post_date}}</small>
 

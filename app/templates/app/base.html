@@ -57,6 +57,7 @@
           </li>
           <li><a href="{% url 'blog' %}">BLOG</a></li>
           <li><a href="{% url 'about_us' %}">ABOUT US</a></li>
+          <li><a href="{% url 'join_us' %}">JOIN</a></li>
 
           {% if user.is_authenticated %}
           
@@ -138,11 +139,10 @@
           <span class="logo_name">Get Placed</span>
         </div>
         <div class="media-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/CS-Hunt/" class="bg-dark"><i class="fab fa-github fa-2x" ></i></a>
+          <a href="mailto:info.cshunt.gmail.com"><i class="fas fa-envelope-square fa-1x"></i></a>
           <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="https://t.me/joinchat/YKR5_lOCNppiZjNl"  class="bg-dark"><i class="fab fa-telegram fa-2x"></i></a>
         </div>
       </div>
       <div class="link-boxes">
@@ -150,10 +150,11 @@
           <li class="link_name">About us</li>
           <p class="text-white">We want to connect with people and connect those people with information. At Get Placed, we help you to find the best courses, certifications and tutorials online. Experts come together to handpick these recommendations based collective experience. It is an educational platform aiming to provide technical as well as career growth assistance to students pursuing fields such as computer science, electronics engineering, etc.</p>
         </ul>
-        <ul class="box input-box">
-          <li class="link_name">Subscribe</li>
-          <li><input type="text" placeholder="Enter your email"></li>
-          <li><input type="button" value="Subscribe"></li>
+        <ul class="box input-box2 mt-5 text-center">
+          <li class="text-white font-weight-bold"><a href="{% url 'join_us' %}" class="text-decoration-none"> Join us </a></li>
+          <li class="text-white"> <a href="{% url 'about_us' %}" class="text-decoration-none ">About us </a></li>
+          <li class="text-white"> <a href="{% url 'blog' %}" class="text-decoration-none">Blog </a></li>
+          <li class="text-white"> <a href="{% url 'resources' %}" class="text-decoration-none">Resources </a></li>
         </ul>
       </div>
     </div> 

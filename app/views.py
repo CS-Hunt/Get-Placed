@@ -34,7 +34,10 @@ def AboutView(request):
     return render(request, 'app/About.html')   
 
 def TermsAndCondition(request):
-    return render(request, 'app/Terms&Condition.html')   
+    return render(request, 'app/Terms&Condition.html') 
+
+def JoinUsView(request):
+    return render(request, 'app/join_us.html')  
     
 class CompanyDetailView(DetailView):
     model = Placement_Company_Detail
