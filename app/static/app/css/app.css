@@ -393,36 +393,29 @@ footer .content .top{
   background: #4267B2;
 }
 .top .media-icons a:nth-child(1):hover{
-  color: #4267B2;
+  color: #f9fafc;
   background: #fff;
 }
 .top .media-icons a:nth-child(2){
-  background: #1DA1F2;
+  background: #d82c2c;
 }
 .top .media-icons a:nth-child(2):hover{
-  color: #1DA1F2;
+  color: #940505;
   background: #fff;
 }
 .top .media-icons a:nth-child(3){
-  background: #E1306C;
+  background: #4d8dfb;
 }
 .top .media-icons a:nth-child(3):hover{
-  color: #E1306C;
+  color: #565de0;
   background: #fff;
 }
 .top .media-icons a:nth-child(4){
   background: #0077B5;
 }
 .top .media-icons a:nth-child(4):hover{
-  color: #0077B5;
-  background: #fff;
-}
-.top .media-icons a:nth-child(5){
-  background: #FF0000;
-}
-.top .media-icons a:nth-child(5):hover{
-  color: #FF0000;
-  background: #fff;
+  color: #fff;
+  background: rgb(12, 4, 4);
 }
 footer .content .link-boxes{
   width: 100%;
