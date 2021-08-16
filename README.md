@@ -1,6 +1,6 @@
 #
 <div align="center">
-<img src=".app/static/images/logo.jpeg" width="20%">
+<img src="https://github.com/CS-Hunt/Get-Placed/blob/master/app/static/app/images/logo.jpeg" width="20%">
 <b>
 </b>
 <h1>Welcome to the Get Placed Repository</h1>
@@ -13,9 +13,9 @@
 
 <br/>
 
-## Getting Started 
+## Getting Started
 
-If you are trying to use this project for the first time, you can get up and running by following these steps. 
+If you are trying to use this project for the first time, you can get up and running by following these steps.
 
 To contribute to this project, please see the [contributing guidelines](https://github.com/CS-Hunt/Get-Placed/blob/master/Contributing.md).
 
@@ -67,7 +67,7 @@ Run the development server
 # run django development server
 python manage.py runserver
 ```
-## Reviewers 
+## Reviewers
 
 After submitting your PR, please tag reviewer(s) in your PR message. You can tag anyone below for the following.
 
@@ -84,7 +84,7 @@ After submitting your PR, please tag reviewer(s) in your PR message. You can tag
      --> *Choose two reviewers :*
 
     [@Nitesh - Nitesh-Singh-5](https://github.com/Nitesh-Singh-5)
-    
+
 
 ## Explore admin panel for model data or instances
 
