@@ -81,7 +81,6 @@ After submitting your PR, please tag reviewer(s) in your PR message. You can tag
 
 - **Frontend, API, Backend, Databases, Dependencies:**
 
-     --> *Choose two reviewers :*
 
     [@Nitesh - Nitesh-Singh-5](https://github.com/Nitesh-Singh-5)
 
