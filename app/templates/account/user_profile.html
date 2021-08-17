@@ -9,7 +9,7 @@
                     <div class="row m-l-0 m-r-0">
                         <div class="col-sm-4 bg-c-lite-green user-profile">
                             <div class="card-block text-center text-white">
-                                <div class="m-b-25"> 
+                                <div class="m-b-25">
                                 {% if page_user.profile_pic %}
                                         <img src="{{page_user.profile_pic.url}}" height="150" width="200" class="img-radius img-fluid" alt="User-Profile-Image">
                                 {% else %}
@@ -33,10 +33,15 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Email</p>
-                                        {% if not page_user.user.email %}
+                                    {% if not page_user.user.email %}
+                                        {% if user.id == profile.user.id %}
                                             <a href="{% url 'user_edit' %}" class="btn btn-light">add email</a>
                                         {% endif %}
+                                        <p>Not available</p>
+                                    {% else %}
                                         <h6 class="text-muted f-w-400">{{page_user.user.email}}</h6>
+                                    {% endif %}
+
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Phone</p>
