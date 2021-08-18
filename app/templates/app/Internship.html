@@ -32,24 +32,24 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title"> <a href="{% url 'Job_Description' item.pk %}" class="text-decoration-none text-dark">{{ item.title|capfirst}}</a></h5> ~ 
-                        <small class="card-title">{{item.author.first_name|capfirst}}
+                        <h5 class="card-title"> <a href="{% url 'Job_Description' item.pk %}" class="text-decoration-none text-dark">{{ item.title|capfirst}}</a></h5> ~
+                        <small class="card-title text-muted">{{item.author.first_name|capfirst}}
                         {{item.author.last_name|capfirst}} - {{item.post_date}}</small>
 
                         {% if user.is_authenticated %}
                         {% if request.user.is_staff %}
 
                             <small>
-                                <a href="{% url 'update_job_post' item.pk %}">- (Edit)</a>
+                                <a href="{% url 'update_job_post' item.pk %}"class="text-decoration-none text-primary">- (Edit)</a>
 
-                                <a href="{% url 'delete_post' item.pk %}">(Delete)</a>
-                                
+                                <a href="{% url 'delete_post' item.pk %}" class="text-decoration-none text-danger">(Delete)</a>
+
                             </small>
 
                         {% endif %}
                         {% endif %}
 
-                        <p class="card-text">{{item.snippet}}</p>
+                        <p class="card-text h6">{{item.snippet}}</p>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
         {% endif %}
       </ul>
     <!--end of Pagination-->
-    
+
 
 {% else %}
 
