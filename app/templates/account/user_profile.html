@@ -35,9 +35,9 @@
                                         <p class="m-b-10 f-w-600">Email</p>
                                     {% if not page_user.user.email %}
                                         {% if user.id == profile.user.id %}
-                                            <a href="{% url 'user_edit' %}" class="btn btn-light">add email</a>
+                                            <a href="{% url 'user_edit' %}" class="btn btn-danger">add email</a>
                                         {% endif %}
-                                        <p>Not available</p>
+                                        <p class="text-danger">Not available</p>
                                     {% else %}
                                         <h6 class="text-muted f-w-400">{{page_user.user.email}}</h6>
                                     {% endif %}
