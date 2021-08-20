@@ -75,8 +75,8 @@ class EditProfilePageView(UpdateView):
     model = Profile
     form_class = EditProfileFormPage
     template_name = 'account/edit_profile_page.html'
-    #fields = ['bio','profile_pic','website_url','facebook_url','twitter_url','instagram_url','linkdin_url']
-    success_url = reverse_lazy('home')
+    def get_success_url(self):
+        return reverse_lazy('show_profile', kwargs={'pk': self.kwargs['pk']})
 
 class ShowProfileView(DetailView):
     model = Profile
