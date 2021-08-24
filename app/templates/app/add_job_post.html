@@ -1,6 +1,6 @@
 {% extends "app/base.html" %}
 
-{% block title %} 
+{% block title %}
 Create a new Blog Post
 {% endblock title %}
 
@@ -9,7 +9,7 @@ Create a new Blog Post
 {% if user.is_staff %}
 <div class="margin-2">
     <div class="container mb-3">
-        <h2>Add Blog Post</h2><br>
+        <h2>Add Job Post</h2><br>
         <div class="form-group">
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -30,6 +30,6 @@ Create a new Blog Post
 
 {% else %}
    <p class="m-3">you're not allowed here</p>
-{% endif %} 
+{% endif %}
 
 {% endblock main-content %}
