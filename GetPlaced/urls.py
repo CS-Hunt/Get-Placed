@@ -11,6 +11,7 @@ router = DefaultRouter()
 # Register StudentViewSet with Router
 router.register('resources',views.ResourcesModelAPI,basename='Resources')
 router.register('job-post',views.JobAPI,basename='job-post')
+router.register('blog',views.BlogAPI,basename='Blog')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
