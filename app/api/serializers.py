@@ -20,7 +20,7 @@ class Placement_Company_DetailAPI(ModelSerializer):
     author = serializers.SlugRelatedField(queryset=User.objects.all(), slug_field='id', write_only=True)
     class Meta:
         model = Placement_Company_Detail
-        fields = ('id','title','snippet','author','Company_image','Job_Description','apply_link','job_type')
+        fields = ('id','title','post_date','snippet','author','Company_image','Job_Description','apply_link','job_type')
 
     # Get the current user from request context
     def validate_author(self, value):
@@ -30,7 +30,7 @@ class Blog_Post_FormAPI(ModelSerializer):
     author = serializers.SlugRelatedField(queryset=User.objects.all(), slug_field='id', write_only=True)
     class Meta:
         model = StudentBlogModel
-        fields = ('id','title','author','body','snippet')
+        fields = ('id','title','post_date','author','body','snippet')
 
     # Get the current user from request context
     def validate_author(self, value):
