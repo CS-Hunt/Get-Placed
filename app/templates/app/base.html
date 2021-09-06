@@ -8,13 +8,13 @@
    <!-- <title> Responsive Drop Down Navigation Menu </title>-->
     <link rel="stylesheet" href="{% static 'app/css/app.css' %}">
     <link rel="stylesheet" href="{% static 'app/css/profile.css' %}">
-    
+
     <link rel="stylesheet" type="text/css" href="{% static 'app/css/lightslider.css' %}"/>
 
     <!--Jquery-->
     <script type="text/javascript" src="{% static 'app/js/JQuery3.3.1.js' %}"></script>
     <script type="text/javascript" src="{% static 'app/js/lightslider.js' %}"></script>
-        
+
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
@@ -60,7 +60,7 @@
           <li><a href="{% url 'join_us' %}">JOIN</a></li>
 
           {% if user.is_authenticated %}
-          
+
           {% if user.profile.profile_pic %}
 
                  <li><a href="{% url "home" %}"><img width="30" height="30"  src="{{ request.user.profile.profile_pic.url }}" class="rounded-circle"
@@ -72,17 +72,17 @@
              <i class='bx bxs-chevron-down js-arrow arrow '></i>
 
               {% endif %}
-            
-            
+
+
             <ul class="js-sub-menu sub-menu">
             {% if user.profile.id %}
 
-            
+
               <li><a href="{% url "show_profile" user.profile.id %}">{{user.username|capfirst}}</a></li>
               {% comment %} <li><a href="{% url "user_edit" user.profile.id %}">Edit settings</a></li> {% endcomment %}
               <li><a href="{% url "edit_profile" user.profile.id %}">Edit profile</a></li>
             {% else %}
-                            
+
                <li><a href="{% url  'create_profile' %}">Create profile page</a></li>
             {% endif %}
               <li><a href="{% url "user_edit" %}">Edit settings</a></li>
@@ -95,7 +95,7 @@
 
               <li><a href="{% url "account_change_password" %}">change password</a></li>
             {% endif %}
-              
+
               {% comment %} <li><a href="#">Card Design</a></li>
               <li class="more">
                 <span><a href="#">More</a>
@@ -110,13 +110,13 @@
             </ul>
           </li>
             <li><a href="{% url "account_logout" %}">LOGOUT</a></li>
-            
+
           {% else %}
             <li><a href="{% url "account_login" %}">Login</a></li>
             <li><a href="{% url "account_signup" %}">Signup</a></li>
           {% endif %}
-          
-          
+
+
         </ul>
       </div>
       <div class="search-box">
@@ -141,7 +141,7 @@
         <div class="media-icons">
           <a href="https://github.com/CS-Hunt/" class="bg-dark"><i class="fab fa-github fa-2x" ></i></a>
           <a href="mailto:info.cshunt.gmail.com"><i class="fas fa-envelope-square fa-1x"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/company/cs-hunt"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://t.me/joinchat/YKR5_lOCNppiZjNl"  class="bg-dark"><i class="fab fa-telegram fa-2x"></i></a>
         </div>
       </div>
@@ -157,7 +157,7 @@
           <li class="text-white"> <a href="{% url 'resources' %}" class="text-decoration-none">Resources </a></li>
         </ul>
       </div>
-    </div> 
+    </div>
     <div class="bottom-details">
       <div class="bottom_text">
         <span class="copyright_text">Copyright © 2021 <a href="{% url 'home' %}">Get Placed.</a>All rights reserved</span>
@@ -167,7 +167,7 @@
         </span>
       </div>
     </div>
-  </footer> 
+  </footer>
   {% block common_scripts %}{% endblock common_scripts %}
 
   <!-- JavaScript Bundle with Popper -->
