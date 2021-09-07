@@ -63,12 +63,12 @@
 
           {% if user.profile.profile_pic %}
 
-                 <li><a href="{% url "home" %}"><img width="30" height="30"  src="{{ request.user.profile.profile_pic.url }}" class="rounded-circle"
+                 <li><a href="{% url "show_profile" user.profile.id %}"><img width="30" height="30"  src="{{ request.user.profile.profile_pic.url }}" class="rounded-circle"
                                                         alt="author's image" /></a><i class='bx bxs-chevron-down js-arrow arrow '></i>
 
               {% else %}
 
-             <li><a href="{% url "home" %}"><img width="30" height="30"  src="{% static 'app/images/download.jpeg' %}" class="rounded-circle" alt="author's image" /></a>
+             <li><a href="{% url "show_profile" user.profile.id %}"><img width="30" height="30"  src="{% static 'app/images/download.jpeg' %}" class="rounded-circle" alt="author's image" /></a>
              <i class='bx bxs-chevron-down js-arrow arrow '></i>
 
               {% endif %}
