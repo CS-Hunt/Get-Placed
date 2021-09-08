@@ -103,7 +103,11 @@ CKEDITOR_CONFIGS = {
     'width': 'auto',
 
           },
+'special': {
+    # 'toolbar_special':''
+    'extraPlugins':'codesnippet',
     }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
