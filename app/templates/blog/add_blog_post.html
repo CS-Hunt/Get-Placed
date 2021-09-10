@@ -1,6 +1,6 @@
 {% extends "app/base.html" %}
 
-{% block title %} 
+{% block title %}
 Create a new Blog Post
 {% endblock title %}
 
@@ -16,7 +16,7 @@ Create a new Blog Post
                 {% csrf_token %}
                 {{form.media}}
                 {{form.as_p}}
-                <input value="Post" type="submit" class="btn btn-primary">
+                <input value="Post" type="submit" class="btn btn-secondary">
             </form>
         </div>
     </div>
@@ -32,6 +32,6 @@ Create a new Blog Post
 
 {% else %}
    <p class="m-3">you're not allowed here</p>
-{% endif %} 
+{% endif %}
 
 {% endblock main-content %}
