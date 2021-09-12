@@ -40,15 +40,15 @@ header .overlay h1{
 }
 .app-btn {
     width: 25%;
-    border: 1px solid rgb(0, 34, 35);
+    padding-top: 0.4rem !important;
+    border: 1px solid rgb(59, 97, 98);
     border-radius: 32px;
     background-color: #fefeff;
+    line-height:1.1;
     color: #000;
     font-size: 0.875rem;
     font-weight: 600;
-    padding: 1rem 0.1rem -0.9rem 0.1rem;
     text-decoration: none;
-    font-size: 10px;
     text-transform: uppercase;
 }
 .app-btn.blu {
