@@ -11,9 +11,10 @@
           <p class="h5">Get Placed provides educational & employment information to help students or job seekers.</p>
             <div class="flex">
                  <a class="app-btn blu flex vert " href="https://play.google.com/store/apps/details?id=com.CSHunt.GetPlaced">
-                    <i class="fab fa-google-play"></i> &nbsp;
-                    <p>Get it on <br/> <span class="big-txt">Google Play</span></p>
-                </a>
+                <img src="https://4.bp.blogspot.com/-52U3eP2JDM4/WSkIT1vbUxI/AAAAAAAArQA/iF1BeARv2To-2FGQU7V6UbNPivuv_lccACLcB/s30/nexus2cee_ic_launcher_play_store_new-1.png" alt="play store" class="img-fluid">
+                <p>Get it on <br/> <span class="big-txt">Google Play</span></p>
+            </a>
+            &nbsp;
             {% if not user.is_authenticated %}
               <a class="btn-outline-lg" href="{% url 'account_signup' %}">Sign Up</a>
             {% else %}
