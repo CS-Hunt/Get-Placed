@@ -32,25 +32,42 @@ header .overlay h1{
 
 /* ------  Home Button -------  */
 
-.btn-solid-lg {
-	display: inline-block;
-	padding: 1.5rem 2.5rem 1.5rem 2.5rem;
-	border: 1px solid rgb(0, 34, 35);
-	border-radius: 32px;
-	background-color: #fefeff;
-	color: #000;
-	font-weight: 600;
-	font-size: 1rem;
-	line-height: 0;
-	text-decoration: none;
-	transition: all 0.2s;
+/* play store button */
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.btn-solid-lg:hover {
-	border: 1px solid #fff;
-	background-color: transparent;
-	color: #fff; 
-	text-decoration: none;
+.app-btn {
+    width: 25%;
+    border: 1px solid rgb(0, 34, 35);
+    border-radius: 32px;
+    background-color: #fefeff;
+    color: #000;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 1rem 0.1rem -0.9rem 0.1rem;
+    text-decoration: none;
+    font-size: 10px;
+    text-transform: uppercase;
 }
+.app-btn.blu {
+    background-color: #fff;
+    border: 1px solid rgb(0, 34, 35);
+    transition: background-color 0.25s linear;
+}
+.app-btn.blu:hover {
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+}
+.app-btn i {
+    width: 20%;
+    text-align: center;
+    font-size: 28px;
+    margin-right: 7px;
+  }
 .text-decoration .p-large{
     margin-left: 140px;
     width: 440px;
@@ -212,7 +229,7 @@ header .overlay h1{
 .card1:hover h5 {
     transition: all 0.3s ease-out;
     color: #fff;
-} 
+}
 @media (max-width: 1000px){
     .card1:hover p {
         transition: all 0.3s ease-out;
@@ -221,7 +238,7 @@ header .overlay h1{
     .card1:hover h5 {
         color: #fff;
         transition: all 0.3s ease-out;
-    } 
+    }
 }
 .m-r-0 {
     margin-right: 0px
@@ -520,9 +537,10 @@ blockquote p {
     header .overlay h1{
         margin-top: -10px;
     }
-    .btn-solid-lg {
-        display: inline-block;
-        padding: 1.1rem 1.8rem 1.1rem 1.8rem;
+    .app-btn {
+        width: 50%;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 0.4rem 0.1rem -0.2rem 0.1rem;
     }
     .btn-outline-lg {
         display: inline-block;
@@ -545,8 +563,8 @@ blockquote p {
     }
     .article {
         width: 300px;
-        
+
     }
-    
-	
+
+
 }
