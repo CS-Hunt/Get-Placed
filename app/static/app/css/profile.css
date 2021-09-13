@@ -40,7 +40,7 @@ header .overlay h1{
 }
 .app-btn {
     width: 25%;
-    padding-top: 0.4rem !important;
+    padding-top: 0.7rem !important;
     border: 1px solid rgb(59, 97, 98);
     border-radius: 32px;
     background-color: #fefeff;
@@ -541,17 +541,18 @@ blockquote p {
     header .overlay h1{
         margin-top: -10px;
     }
+    .app-btn {
+        width: 50%;
+        padding-top:0.4rem !important;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 0.4rem 0.1rem -0.2rem 0.1rem;
+    }
     .app-btn img{
         padding-left: 2px;
     }
     p {
         margin-top: 0;
         margin-bottom: 0.3rem !important;
-    }
-    .app-btn {
-        width: 50%;
-        font-family: 'Courier New', Courier, monospace;
-        padding: 0.4rem 0.1rem -0.2rem 0.1rem;
     }
     .btn-outline-lg {
         display: inline-block;
