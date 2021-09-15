@@ -31,7 +31,7 @@ Create a new Blog Post
 
 
 {% else %}
-   <p class="m-3">you're not allowed here</p>
+   <p class="m-3">you're not allowed here. Please Login <a href="{% url "account_login" %}" class="btn btn-outline-primary btn-sm mt-2">Login</a></p>
 {% endif %}
 
 {% endblock main-content %}
