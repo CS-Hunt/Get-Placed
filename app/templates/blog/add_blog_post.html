@@ -8,6 +8,8 @@ Create a new Blog Post
 
 {% if user.is_authenticated %}
 
+{% if request.user.profile.bio %}
+
 <div class="margin-2">
     <div class="container mb-2">
         <h2>Add Blog Post</h2><br>
@@ -28,6 +30,11 @@ Create a new Blog Post
       = name;
 
 </script>
+{% else %}
+
+<p class="mt-4 ml-5">Please First Create your Profile.. <a href="{% url 'create_profile' %}" ><input class="btn btn-outline-primary mt-2" type="button" value="Create"></a> </p>
+
+{% endif %}
 
 
 {% else %}
